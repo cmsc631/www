@@ -2,6 +2,11 @@
 
 @title{Blog}
 
+@bold{Thu Jan 30 11:45:48 EST 2014}
+
+I've scheduled weekly office hours for Wed 1:30--3:30pm 3439 AVW.  You
+can also make an appointment at any time via email.
+
 @bold{Mon Jan 27 14:27:59 EST 2014}
 
 Class is cancelled for Tuesday, Jan 28 due to a PI meeting I need to

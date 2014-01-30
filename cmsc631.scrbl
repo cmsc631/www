@@ -20,6 +20,8 @@ ask/articulate questions and how to recognize elements of solutions.
 
 @bold{Location:} @link["http://www.umd.edu/CampusMaps/bld_detail.cfm?bld_code=CSI"]{CSI} 3118, Tu & Th 3:30--4:45pm.
 
+@bold{Office hours:} Wed 1:30--3:30pm 3439 AVW, or by appointment.
+
 @bold{Prerequisites:} The course assumes that you know how to design
 (recursive) programs (systematically) and that you have encountered
 inductive proofs.
