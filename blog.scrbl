@@ -2,6 +2,21 @@
 
 @title{Blog}
 
+@bold{Fri Jan 31 18:41:56 EST 2014}
+
+For what it's worth, here are the results of the PL popularity contest
+from PS1:
+
+@itemlist[
+  @item{Java: 4}
+  @item{Python: 3}
+  @item{C++: 2}
+  @item{Haskell: 2}
+  @item{Racket: 2}
+  @item{Ruby: 1}
+  @item{OCaml: 1}
+]
+
 @bold{Fri Jan 31 17:06:50 EST 2014}
 
 Teams for PS2:
@@ -15,7 +30,7 @@ Teams for PS2:
 @gh{04}: johnjosephmorgan, cmihaloe
 @gh{05}: philnguyen, kartik1507
 @gh{06}: rohit507, tpensyl
-@gh{07}: wangxiao1254, ?
+@gh{07}: wangxiao1254, awruef
 @gh{08}: YuRHere, rmacnz
 }
 
