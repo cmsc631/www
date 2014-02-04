@@ -2,6 +2,11 @@
 
 @title{Blog}
 
+@bold{Tue Feb  4 12:16:08 EST 2014}
+
+@secref{PS2} is up.  Several papers on the @secref{Schedule}, but the
+precise list and order is still subject to change.
+
 @bold{Fri Jan 31 18:41:56 EST 2014}
 
 For what it's worth, here are the results of the PL popularity contest

@@ -28,7 +28,7 @@
 		  (list "2/6" "Redex" "I.3" "")
 		  ;; week 3
 		  (list "2/11" "Program analysis tour" "I.4, II.12" "")
-		  (list "2/13" @elem{The λ-calculus} "I.5" "PS2")
+		  (list "2/13" @elem{The λ-calculus} "I.5" @secref{PS2})
 		  ;; week 4
 		  (list "2/18" "ISWIM" "I.10" @secref{RP1})
 
