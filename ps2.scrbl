@@ -74,6 +74,14 @@ Implement the function in OCaml.
 Implement an interpreter in OCaml that iteratively applies the
 standard reduction relation until an answer is obtained.
 
+@section[#:tag-prefix "ps2"]{Problem 5}
+
+Develop a ``potentially parallel" reduction semantics for the @emph{A}
+language.  The one-step reduction relation may apply any number of
+occurrences of the reduction axioms between 0 and the maximum.
+
+Implement the reduction semantics in Redex.
+
 @section[#:tag-prefix "ps2"]{Delivery}
 
 All work should be committed to your pair's github repository.  For
