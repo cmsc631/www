@@ -2,6 +2,18 @@
 
 @title{Blog}
 
+@bold{Tue Feb  4 20:30:40 EST 2014}
+
+Becca caught a couple of errors in the natural semantics section (1.3)
+of the notes where I had written the inference rules ``@emph{e evalsto
+i} implies @emph{Pred(i) evalsto i-1}'' and similarly for @emph{Succ}
+(where ``@emph{evalsto}'' is the natural semantics evaluation
+relation).  The rule should be ``@emph{e evalsto i} implies
+@emph{Pred(e) evalsto i-1}.''  It will be corrected in the next
+iteration of the notes.
+
+Thanks!
+
 @bold{Tue Feb  4 12:16:08 EST 2014}
 
 @secref{PS2} is up.  Several papers on the @secref{Schedule}, but the
