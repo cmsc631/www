@@ -3,4 +3,4 @@ dummy:
 
 push:	
 	cp -r papers/ cmsc631/papers/
-	rsync -avz cmsc631 junkfood.cs.umd.edu:/fs/www/class/spring2014/cmsc631
+	rsync -avz cmsc631 umd:/fs/www/class/spring2014
