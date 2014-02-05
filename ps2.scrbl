@@ -13,7 +13,7 @@ implementing natural semantics, reduction semantics, and interpreters.
 
 Revise the one-page description of your chosen programming language
 based on the feedback on @secref{PS1} handed back in class on February
-4.  Exchange memos with your partner.  Critically mark up your
+6.  Exchange memos with your partner.  Critically mark up your
 partner's memo to improve the writing.  Together, revise both memos to
 incoporate the comments you generated.  Commit PDFs of both revised
 memos to your github repository.  (You may also commit source code,
