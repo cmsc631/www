@@ -1,10 +1,15 @@
 #lang scribble/manual
 @title{Texts}
 
-The course will rely on one text book but PhD students should learn to
-read texts on their own in case they must work on something not quite
-familiar but in their area—that's the essence of a PhD program. Hence
-the list includes two recommended, introductory text books.
+The course will rely on a set of course notes and one text book, but
+PhD students should learn to read texts on their own in case they must
+work on something not quite familiar but in their area—that's the
+essence of a PhD program. Hence the list includes two recommended,
+introductory text books.
+
+@bold{Course Notes}
+
+@itemlist[@item{@emph{@link["notes.pdf"]{Program Analysis and Understanding}}  (Frequently updated, this points to most recent version.)}]
 
 @bold{Required Text}
 

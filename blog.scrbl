@@ -2,6 +2,39 @@
 
 @title{Blog}
 
+@bold{Thu Feb  6 21:24:24 EST 2014}
+
+The
+@link["http://www.cs.umd.edu/class/spring2014/cmsc631/notes.pdf"]{notes}
+have been updated with a section on Redex.
+
+@bold{Thu Feb  6 18:41:50 EST 2014}
+
+CMSC 330 has a good
+@link["http://www.cs.umd.edu/class/spring2013/cmsc330/lectures/ocaml.pdf"]{slide
+deck} on programming in OCaml.
+
+The Emacs mode I used in class today is called
+@link["http://tuareg.forge.ocamlcore.org/"]{Tuareg}.
+
+If you find other resources useful, send them to me and I will post
+them here.
+
+@bold{Thu Feb  6 18:22:22 EST 2014}
+
+Question on PS2: ``Do you anticipate us writing a lexer and parser for
+our interpreter?''
+
+Answer: No.  An interpreter that operates on abstract syntax is all
+that is required.
+
+@bold{Wed Feb  5 01:48:11 EST 2014}
+
+The
+@link["http://www.cs.umd.edu/class/spring2014/cmsc631/notes.pdf"]{course
+notes} have been revised to fix some errors and include discussion of
+contexts, evaluation contexts, and standard reduction.
+
 @bold{Tue Feb  4 20:30:40 EST 2014}
 
 Becca caught a couple of errors in the natural semantics section (1.3)
