@@ -2,6 +2,18 @@
 
 @title{Blog}
 
+@bold{Fri Feb  7 16:48:15 EST 2014}
+
+Rohit writes, there are two ways to get a better OCaml repl:
+
+@itemlist[
+@item{@link["http://utopia.knoware.nl/~hlub/rlwrap/#rlwrap"]{rlwrap}:
+which wraps any program so that it has history on lines from stdin.}
+
+@item{@link["https://github.com/diml/utop"]{utop}: 
+which is a full ocaml repl with many more features than the stadard.}
+]
+
 @bold{Thu Feb  6 21:24:24 EST 2014}
 
 The
