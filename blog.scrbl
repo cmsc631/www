@@ -2,6 +2,18 @@
 
 @title{Blog}
 
+@bold{Tue Feb 11 18:47:04 EST 2014}
+
+The @link["notes.pdf"]{notes} have been updated with content on typing
+and abstract interpretation with types.
+
+@bold{Tue Feb 11 15:11:07 EST 2014}
+
+Since the memos were handed back late (in class today), I am extending
+the deadline for the revised memo part of @secref{PS2} to next Tuesday at
+midnight.  The rest of PS2 is still due at the posted time (this
+Thursday at midnight).
+
 @bold{Fri Feb  7 16:48:15 EST 2014}
 
 Rohit writes, there are two ways to get a better OCaml repl:
