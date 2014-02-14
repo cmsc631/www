@@ -2,6 +2,56 @@
 
 @title{Blog}
 
+@bold{Fri Feb 14 00:14:13 EST 2014}
+
+Be sure to fire up DrRacket at some point today.
+
+@bold{Thu Feb 13 13:37:28 EST 2014}
+
+A helpful hint on problem 5: first, develop the reduction relation
+with pencil and paper as a set of inference rules; then translate the
+rules into a relation in Redex using @tt{define-judgment-form}; then
+lift this judgment into a @tt{reduction-relation} using the
+@tt{judgment-holds} condition.
+
+Here is a potentially helpful analogy.  It formalizes the language of
+natural numbers and defines the ``@tt{>=}'' relation.  It then makes a
+reduction relation out of this relation so that @tt{N --> N'} if
+@tt{N} is greater than or equal to @tt{N'}.  It visualizes an example
+for the number 3.
+
+@codeblock[#:keep-lang-line? #t]|{
+#lang racket
+(require redex)
+
+(define-language Natural
+  (N ::= Z (S N)))
+
+(define-judgment-form Natural
+  #:mode (>= I O)
+  [(>= N N)]
+  [(>= N_0 N_1)
+   ---------------
+   (>= (S N_0) N_1)])
+
+(define ->>= 
+  (reduction-relation 
+   Natural
+   (--> N_0 N_1
+        (judgment-holds (>= N_0 N_1)))))
+
+(traces ->>= (term (S (S (S Z)))))
+}|
+
+@bold{Thu Feb 13 12:12:41 EST 2014}
+
+@bold{Snow day!}  There's no class today, as the university is closed.
+However, I still expect @secref{PS2} to be submitted tonight by
+midnight (except for the memo portion).
+
+Since I heard no objections, I have posted the redacted, marked-up
+@link["papers/memos-marked_Redacted.pdf"]{memos}.
+
 @bold{Tue Feb 11 18:47:04 EST 2014}
 
 The @link["notes.pdf"]{notes} have been updated with content on typing
