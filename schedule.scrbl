@@ -27,13 +27,14 @@
 		  (list "2/4" "Reduction in context" "II.11" "")
 		  (list "2/6" "Redex" "I.3" "")
 		  ;; week 3
-		  (list "2/11" "Program analysis tour" "I.4, II.12" "")
-		  (list "2/13" @elem{The λ-calculus} "I.5" @secref{PS2})
-		  ;; week 4
-		  (list "2/18" "ISWIM" "I.10" @secref{RP1})
+		  (list "2/11" "Types and abstract interpretation with types" "I.4, II.12" "")
+		  (list @color["red"]{2/13} @color["red"]{Snow day}  "I.5" @secref{PS2})
+		  ;; week 4 "ISWIM"
+		  (list "2/18" "Abstract interpretation with intervals and type inference with constraints" "I.10" "")
 
 		  ;; ANALYSIS I
-		  (list "2/20" "Standard reduction" "" "")
+                  ;; cut: "Standard reduction"
+		  (list "2/20" @elem{The λ-calculus}  "" @secref{RP1})
 		  ;; week 5
 		  (list "2/25" "Types & subject reduction" 
                         @(paper "Syntactic Approach to Type Soundness"
@@ -43,9 +44,13 @@
 		  (list "2/27" 
 			"Type inference" 
 			@elem{
+                          @elem{
+                          @(paper "A Simple Algorithm and Proof for Type Inference"
+                                  "Wand"
+                                  "wand-inference.pdf");                           
   			  @(paper "Adapting Scrum to Managing a Research Group"
 				  "Hicks & Foster"
-				  "plum-score.pdf")}
+				  "plum-score.pdf")}}
 			"PS3")
 		  ;; week 6
 		  (list "3/4" "Flow analysis & constraints"
@@ -71,7 +76,7 @@
 			"Abstract interpretation"
 			@elem{
 			  @(paper "Abstract Interpretation: a Semantics-Based Tool for Program Analysis"
-				  "Jones"
+				  "Jones & Nielson"
 				  "jones-ai-tutorial.pdf");
 			  @(paper "Systematic Design of Program Analysis Frameworks"
 				  "Cousot & Cousot"
