@@ -19,6 +19,9 @@ incoporate the comments you generated.  Commit PDFs of both revised
 memos to your github repository.  (You may also commit source code,
 but I will only read the PDF.)
 
+@bold{The deadline for this part has been extended until Tuesday, Feb
+18.}
+
 @section[#:tag-prefix "ps2"]{Problem 2}
 
 Implement an interpreter for the imprecise error semantics of the
