@@ -2,6 +2,10 @@
 
 @title{Blog}
 
+@bold{Thu Feb 20 17:16:59 EST 2014}
+
+Some ideas for @secref{Potential_projects} have been posted.
+
 @bold{Fri Feb 14 00:14:13 EST 2014}
 
 Be sure to fire up DrRacket at some point today.

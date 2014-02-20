@@ -7,7 +7,7 @@
 
 @section[#:tag "editor"]{Static Analysis for Interactive Program Editing}
 
-In collaboration with Matthew Hammer.
+In collaboration with @link["http://www.cs.umd.edu/~hammer/"]{Matthew Hammer}.
 
 Develop an incremental static analysis framework suitable
 for interactive program editing.
@@ -41,7 +41,7 @@ Related papers:
 
 @section{Embedded Secure Multi-party Computation}
 
-In collaboration with Piotr Marzdiel.
+In collaboration with @link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel}.
 
 Secure multi-party computation is a technique in which several parties
 to jointly compute a function of their private inputs without
@@ -67,11 +67,12 @@ interaction, graphics, etc.
 
 @section[#:tag "wysteria"]{Enhancing Wysteria}
 
-In collaboration with Aseem Rastogi, Matthew Hammer, Piotr Mardziel.
+In collaboration with @link["http://www.cs.umd.edu/~aseem/"]{Aseem Rastogi}, 
+@link["http://www.cs.umd.edu/~hammer/"]{Matthew Hammer}, and
+@link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel}.
 
-More details on Wysteria: https://bitbucket.org/aseemr/wysteria/wiki/Home
 
-The project involves enhancing Wysteria. Some possibilities include:
+The project involves enhancing @link["https://bitbucket.org/aseemr/wysteria/wiki/Home"]{Wysteria}. Some possibilities include:
 
 
 @itemlist[
@@ -128,7 +129,8 @@ on Wysteria.
 
 @section[#:tag "rube"]{A Virtual Machine for Rube}
 
-In collaboration with Jeff Foster.
+In collaboration with @link["https://www.cs.umd.edu/~jfoster/"]{Jeff
+Foster}.
 
 In CMSC 430, Introduction to Compilers, students ultimately build a
 compiler from Rube, a Ruby-like scripting language, to Lua
@@ -153,7 +155,7 @@ also!
 
 @section[#:tag "synthesis"]{Domain specific synthesis; Syntax guided synthesis}
 
-In collaboration with Jinseong Jeon.
+In collaboration with @link["http://www.cs.umd.edu/~jsjeon/"]{Jinseong Jeon}.
 
 Program synthesis [1,2] is an attractive programming paradigm in which an
 automated algorithm derives a program from a given specification.  The
