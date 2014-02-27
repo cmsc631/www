@@ -2,6 +2,33 @@
 
 @title{Blog}
 
+@bold{Thu Feb 27 15:24:46 EST 2014}
+
+I wrote several problems for @secref{PS3} but decided I didn't like
+them.  So instead there is just a single problem for @secref{PS3},
+which you should complete with your current partner.  It is due March
+6 at midnight.
+
+Partners for projects are due by March 6 as well.  First draft of
+proposals are due March 11.  You will get feedback by March 13.
+
+@bold{Fri Feb 21 15:47:57 EST 2014}
+
+A Piazza forum has been set up for the
+@link["https://piazza.com/umd/spring2014/cmsc631/home"]{course}.
+@link["https://piazza.com/umd/spring2014/cmsc631"]{Sign up} to
+participate in discussions.
+
+You may discuss any topic from class, but it may be useful in
+particular to pitch project ideas and find like-minded partners to
+work with on the research project.
+
+@bold{Fri Feb 21 12:02:20 EST 2014}
+
+The @link["notes.pdf"]{notes} have been updated to include material on
+symbolic execution and type inference.  I made a bad mistake in the
+way unification was presented in class, so be sure to read the notes.
+
 @bold{Thu Feb 20 17:16:59 EST 2014}
 
 Some ideas for @secref{Potential_projects} have been posted.

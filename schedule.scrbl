@@ -34,15 +34,15 @@
 
 		  ;; ANALYSIS I
                   ;; cut: "Standard reduction"
-		  (list "2/20" @elem{The λ-calculus}  "" @secref{RP1})
+		  (list "2/20" @elem{The λ-calculus}  "" "")
 		  ;; week 5
-		  (list "2/25" "Types & subject reduction" 
+		  (list "2/25" @elem{The λv-calculus} 
                         @(paper "Syntactic Approach to Type Soundness"
                                 "Wright & Felleisen"
                                 "wright-felleisen-syn-type-soundness.pdf")
                         "")
 		  (list "2/27" 
-			"Type inference" 
+			"Mixed mode secure computation (Aseem Rastogi); Incremental computation (Matthew Hammer)"
 			@elem{
                           @elem{
                           @(paper "A Simple Algorithm and Proof for Type Inference"
@@ -53,13 +53,14 @@
 				  "plum-score.pdf")}}
 			"PS3")
 		  ;; week 6
-		  (list "3/4" "Flow analysis & constraints"
+		  (list "3/4" "Type inference"
 			@elem{
 			  @(paper "Introduction to Set Constraint-Based Program Analysis"
 				  "Aiken"
 				  "aiken-constraints.pdf")}
 			"RP2")
-		  (list "3/6" "Termination analysis" "" "")
+		  (list "3/6" "Flow analysis & constraints" "" @secref{PS3})
+		  #;(list "3/6" "Termination analysis" "" "")
 		  ;; week 7
 		  (list "3/11" "Symbolic execution"
 		        @elem{
