@@ -51,7 +51,7 @@
   			  @(paper "Adapting Scrum to Managing a Research Group"
 				  "Hicks & Foster"
 				  "plum-score.pdf")}}
-			"PS3")
+			"")
 		  ;; week 6
 		  (list "3/4" "Type inference"
 			@elem{
