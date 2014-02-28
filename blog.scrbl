@@ -2,6 +2,10 @@
 
 @title{Blog}
 
+@bold{Thu Feb 27 17:14:13 EST 2014}
+
+Slides from Aseem's talk are @link["papers/wysteria-631.pdf"]{here}.
+
 @bold{Thu Feb 27 15:24:46 EST 2014}
 
 I wrote several problems for @secref{PS3} but decided I didn't like
