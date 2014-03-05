@@ -2,9 +2,155 @@
 
 @title{Blog}
 
+@bold{Wed Mar  5 10:30:27 EST 2014}
+
+Here's the code we wrote in class yesterday.
+
+We started with a data represtation of programs:
+
+@codeblock[#:keep-lang-line? #t]{
+#lang racket
+;; An Exp is one of:
+;; - (var Symbol)
+;; - (num Number)
+;; - (bool Boolean)
+;; - (ife Exp Exp Exp)
+;; - (app Exp Exp)
+;; - (lam Symbol Exp)
+;; - (prim1 Op Exp)
+;; - (prim2 Op Exp Exp)
+(struct vbl (name))
+(struct num (val))
+(struct bool (val))
+(struct ife (test then else))
+(struct app (fun arg))
+(struct lam (var exp))
+(struct prim1 (op arg))
+(struct prim2 (op arg1 arg2))
+}
+
+We wrote some operations on environments:
+@codeblock[#:keep-lang-line? #f]{
+#lang racket
+;; Env Symbol -> Val
+(define (lookup ρ x)
+  (cond [(empty? ρ) (error "unbound variable")]
+        [(eq? x (first (first ρ)))
+         (second (first ρ))]
+        [else
+         (lookup (rest ρ) x)]))
+
+;; Env Symbol Val -> Env
+(define (extend ρ x v)
+  (cons (list x v) ρ))
+}
+
+Then we wrote an evaluator that represented functions as (Racket) functions:
+
+@codeblock[#:keep-lang-line? #f]{
+#lang racket
+;; Exp Env -> Val
+(define (ev e ρ)
+  (match e
+    [(vbl x) (lookup ρ x)]
+    [(num v) v]
+    [(bool v) v]
+    [(ife test then else)
+     (if (ev test ρ)
+         (ev then ρ)
+         (ev else ρ))]
+    [(app fun arg)
+     (let ((f (ev fun ρ))
+           (v (ev arg ρ)))
+       (f a))]
+    [(lam x e)
+     (λ (v)
+       (ev e (extend ρ x v)))]
+    [(prim1 op e)
+     (let ((v (ev e ρ)))
+       (case op 
+         [(succ) (add1 v)]))]
+    [(prim2 op e1 e2)
+     (let ((v1 (ev e1 ρ))
+           (v2 (ev e2 ρ)))
+       (case op
+         [(plus) (+ v1 v2)]))]))
+}
+
+We then talked about how to eliminate the use of functions by
+representing them with a data structure.
+
+@codeblock[#:keep-lang-line? #f]{
+#lang racket
+(struct closure (e ρ x))
+
+;; Exp Env -> Val
+(define (ev e ρ)
+  (match e
+    ...
+    [(app fun arg)
+     (let ((f (ev fun ρ))
+           (v (ev arg ρ)))
+       (match f
+         [(closure e ρ x)
+          (ev e (extend ρ x v))]))]
+    [(lam x e)
+     (closure e ρ x)]
+    ...))
+}
+
+Then we discussed an explicit control evaluator:
+
+@codeblock[#:keep-lang-line? #f]{
+#lang racket
+;; Exp Env -> Val
+(define (ev e ρ)
+  ;; Exp Env (Val -> Val) -> Val
+  (define (eval e ρ κ)
+    (match e
+      [(vbl x) (κ (lookup ρ x))]
+      [(num v) (κ v)]
+      [(bool v) (κ v)]
+      [(exn e)
+       (eval e ρ
+             (λ (v) v))]
+      [(ife test then else)
+       (eval test ρ
+             (λ (v)           
+               (if v
+                   (eval then ρ κ)
+                   (eval else ρ κ))))]
+      [(app fun arg)
+       (eval fun ρ
+             (λ (f)
+               (eval arg ρ
+                     (λ (v)
+                       (match f
+                         [(closure e ρ x)
+                          (eval e (extend ρ x v) κ)])))))]
+      [(lam x e)
+       (κ (closure e ρ x))]      
+      [(prim1 op e)
+       (eval e ρ
+             (λ (v)
+               (case op
+                 [(succ) (κ (add1 v))])))]
+      [(prim2 op e1 e2)
+       (eval e1 ρ
+             (λ (v1)
+               (eval e2 ρ
+                     (λ (v2)
+                       (case op
+                         [(plus)
+                          (κ (+ v1 v2))])))))]))
+  (eval e ρ (λ (v) v)))
+}
+
 @bold{Thu Feb 27 17:14:13 EST 2014}
 
 Slides from Aseem's talk are @link["papers/wysteria-631.pdf"]{here}.
+
+Slides from Matt's talk are @link["papers/2014.02.27-dvh631-ic-lecture.pdf"]{here}.
 
 @bold{Thu Feb 27 15:24:46 EST 2014}
 
