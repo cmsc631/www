@@ -2,6 +2,190 @@
 
 @title{Blog}
 
+@bold{Thu Mar  6 16:48:58 EST 2014}
+
+Here's the code we wrote in class today.
+
+We started from a typed version of the code from Tuesday and added
+throw and catch to language:
+
+@codeblock[#:keep-lang-line? #t]{
+#lang typed/racket
+(define-type Exp
+  (U vbl num bool ife app lam prim1 prim2 throw catch))
+(struct: vbl ([name : Symbol]))
+(struct: num ([val : Integer]))
+(struct: bool ([val : Boolean]))
+(struct: ife ([e1 : Exp] [e2 : Exp] [e3 : Exp]))
+(struct: app ([e1 : Exp] [e2 : Exp]))
+(struct: lam ([x : Symbol] [e : Exp]))
+(struct: prim1 ([op : Op1] [e : Exp]))
+(struct: prim2 ([op : Op2] [e1 : Exp] [e2 : Exp]))
+(struct: throw ([e : Exp]))
+(struct: catch ([e : Exp]))
+
+(struct: closure ([e : Exp] [ρ : Env] [x : Symbol]))
+
+(define-type Op1 (U 'succ))
+(define-type Op2 (U 'plus))
+(define-type Val (U Integer Boolean closure))
+(define-type Env (Listof (List Symbol Val)))
+
+(: lookup (Env Symbol -> Val))
+(define (lookup ρ x)
+  (cond [(empty? ρ) (error "unbound variable")]
+        [(eq? x (first (first ρ)))
+         (second (first ρ))]
+        [else
+         (lookup (rest ρ) x)]))
+
+(: extend (Env Symbol Val -> Env))
+(define (extend ρ x v)
+  (cons (list x v) ρ))
+
+(: apply-function (Val Val (Val -> Val) -> Val))
+(define (apply-function f v κ)
+  (match f
+    [(closure e ρ x)
+     (eval e (extend ρ x v) κ)]
+    [_ (error "type error: not a function")]))
+
+(: ev (Exp Env -> Val))
+(define (ev e ρ)
+  (eval e ρ (λ: ([v : Val]) v)))
+
+(: eval (Exp Env (Val -> Val) -> Val))
+(define (eval e ρ κ)
+  (match e
+    [(vbl x) (κ (lookup ρ x))]
+    [(num v) (κ v)]
+    [(bool v) (κ v)]
+    [(catch e)
+     (κ (eval e ρ (λ: ([v : Val]) v)))]
+    [(throw e)
+     (eval e ρ (λ: ([v : Val]) v))]
+    [(ife test then else)
+     (eval test ρ
+           (λ: ([v : Val])
+             (if v
+                 (eval then ρ κ)
+                 (eval else ρ κ))))]
+    [(app fun arg)
+     (eval fun ρ
+           (λ: ([f : Val])
+             (eval arg ρ
+                   (λ: ([v : Val])
+                     (apply-function f v κ)))))]
+    [(lam x e)
+     (κ (closure e ρ x))]
+    [(prim1 op e)
+     (eval e ρ
+           (λ: ([v : Val])             
+             (case op
+               [(succ)
+                (if (integer? v)
+                    (κ (add1 v))
+                    (error "type error: expected integer"))])))]
+                       
+    [(prim2 op e1 e2)
+     (eval e1 ρ
+           (λ: ([v1 : Val])
+             (eval e2 ρ
+                   (λ: ([v2 : Val])
+                     (case op
+                       [(plus)
+                        (if (and (integer? v1) (integer? v2))
+                            (κ (+ v1 v2))
+                            (error "type error: expected integers"))])))))]))
+}
+
+We observed a couple things: this code is in continuation passing
+style, which means all non-total functions are called in tail position
+with trivial arguments---with the exception of @code{catch}.  It's
+possible to transform the program again by introducing another
+explicit continuation argument.  The two would represent the local
+context (up to the nearest enclosing @code{catch}) and the outer
+context surrounding the nearest enclosing catch.
+
+We then punted on exceptions and defunctionalized the code:
+
+@codeblock[#:keep-lang-line? #f]{
+#lang typed/racket
+(define-type Cont
+  (U evk ifk appk1 appk2 prim1k prim2k1 prim2k2))
+(struct: evk ())
+(struct: ifk ([e2 : Exp] [e3 : Exp] [ρ : Env] [κ : Cont]))
+(struct: appk1 ([e2 : Exp] [ρ : Env] [κ : Cont]))
+(struct: appk2 ([f : Val] [κ : Cont]))
+(struct: prim1k ([op : Op1] [κ : Cont]))
+(struct: prim2k1 ([op : Op2] [e2 : Exp] [ρ : Env] [κ : Cont]))
+(struct: prim2k2 ([op : Op2] [v1 : Val] [κ : Cont]))
+
+(: ev (Exp Env -> Val))
+(define (ev e ρ)  
+  (eval e ρ (evk)))
+
+(: eval (Exp Env Cont -> Val))
+(define (eval e ρ κ)
+  (match e
+    [(vbl x) (continue κ (lookup ρ x))]
+    [(num v) (continue κ v)]
+    [(bool v) (continue κ v)]    
+    [(ife e1 e2 e3)
+     (eval e1 ρ (ifk e2 e3 ρ κ))]
+    [(app e1 e2)
+     (eval e1 ρ (appk1 e2 ρ κ))]           
+    [(lam x e)
+     (continue κ (closure e ρ x))]      
+    [(prim1 op e)
+     (eval e ρ (prim1k op κ))]
+    [(prim2 op e1 e2)
+     (eval e1 ρ (prim2k1 op e2 ρ κ))]))
+
+(: apply-function (Val Val Cont -> Val))
+(define (apply-function f v κ)
+  (match f
+    [(closure e ρ x)
+     (eval e (extend ρ x v) κ)]
+    [_ (error "type error: not a function")]))
+
+(: continue (Cont Val -> Val))
+(define (continue κ v)
+  (match κ
+    [(evk) v]
+    [(ifk e2 e3 ρ κ)
+     (if v
+         (eval e2 ρ κ)
+         (eval e3 ρ κ))]
+    [(appk1 e2 ρ κ)
+     (eval e2 ρ (appk2 v κ))]
+    [(appk2 f κ)
+     (apply-function f v κ)]
+    [(prim1k op κ)
+     (case op
+       [(succ) 
+        (if (integer? v)
+            (continue κ (add1 v))
+            (error "type error: expected integer"))])]
+    [(prim2k1 op e2 ρ κ)
+     (let ((v1 v))
+       (eval e2 ρ (prim2k2 op v1 κ)))]
+    [(prim2k2 op v1 κ)
+     (let ((v2 v))
+       (case op
+         [(plus)
+          (if (and (integer? v1) (integer? v2))
+              (continue κ (+ v1 v2))
+              (error "type error: expected integers"))]))]))
+}
+
+This code consists of three mutually recursive, first-order functions
+in which all calls are tail calls (and could be implemented as gotos).
+So this derived interpreter is a first-order state transition system,
+which is known as an abstract machine.  By the correctness of our
+program transformations, we know it is a correct low-level
+implementation of the language.
+
 @bold{Wed Mar  5 10:30:27 EST 2014}
 
 Here's the code we wrote in class yesterday.
