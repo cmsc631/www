@@ -58,7 +58,7 @@
 			  @(paper "Introduction to Set Constraint-Based Program Analysis"
 				  "Aiken"
 				  "aiken-constraints.pdf")}
-			"RP2")
+			@secref{RP2})
 		  (list "3/6" "Flow analysis & constraints" "" @secref{PS3})
 		  #;(list "3/6" "Termination analysis" "" "")
 		  ;; week 7

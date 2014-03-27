@@ -1,6 +1,31 @@
 #lang scribble/manual
 
+@(define (gh p) (link (format "https://github.com/cmsc631/~a" p) (format "~a" p)))
+
 @title{Blog}
+
+@bold{Tue Mar 11 10:40:28 EDT 2014}
+
+I've given some more detail about what should be included in the
+project proposals (@secref{RP2}).  Sorry this is so late in going out.
+
+@bold{Fri Mar  7 09:40:30 EST 2014}
+
+Partners for project, with github usernames:
+
+@itemlist[
+@item{@gh{proj01}: Andrew Ruef (@tt{awruef}), David Hogarty (@tt{flyingsymbols})}
+@item{@gh{proj02}: Casey Mihaloe (@tt{cmihaloe}), John Morgan (@tt{johnjosephmorgan})}
+@item{@gh{proj03}: Becca MacKenzie (@tt{rmacnz})}
+@item{@gh{proj04}: Zebao Gao (@tt{gaozebao}), Emily Hand (@tt{ehand})}
+@item{@gh{proj05}: Xiao Wang (@tt{wangxiao1254}), Kartik Nayak (@tt{kartik1507})}
+@item{@gh{proj06}: Phil Nguyen (@tt{philnguyen}), Jon Fetter-Deges (@tt{jonfetterdegges})}
+@item{@gh{proj07}: Garrett Katz (@tt{garrettkatz}), Tommy Pensyl (@tt{tpensyl})}
+@item{@gh{proj08}: Javran Chang (@tt{Javran})}
+@item{@gh{proj09}: Rohit Ramesh (@tt{rohit507})}
+@item{@gh{proj10}: Saeed Seddighin (@tt{saeedseddighin}), Hossein Esfandiari (@tt{esfandiari})}
+@item{@gh{proj11}: Alex Yu (@tt{YuRHere})}
+]
 
 @bold{Thu Mar  6 16:48:58 EST 2014}
 
@@ -510,17 +535,15 @@ from PS1:
 
 Teams for PS2:
 
-@(define (gh p) (link (format "https://github.com/cmsc631/pair~a" p) (format "pair~a" p)))
-
 @verbatim{
-@gh{01}: jonfetterdegges, Javran
-@gh{02}: ehand, gaozebao
-@gh{03}: garrettkatz, flyingsymbols
-@gh{04}: johnjosephmorgan, cmihaloe
-@gh{05}: philnguyen, kartik1507
-@gh{06}: rohit507, tpensyl
-@gh{07}: wangxiao1254, awruef
-@gh{08}: YuRHere, rmacnz
+@gh{pair01}: jonfetterdegges, Javran
+@gh{pair02}: ehand, gaozebao
+@gh{pair03}: garrettkatz, flyingsymbols
+@gh{pair04}: johnjosephmorgan, cmihaloe
+@gh{pair05}: philnguyen, kartik1507
+@gh{pair06}: rohit507, tpensyl
+@gh{pair07}: wangxiao1254, awruef
+@gh{pair08}: YuRHere, rmacnz
 }
 
 If you don't see your Github username, that means either you did not
