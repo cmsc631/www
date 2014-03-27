@@ -8,4 +8,5 @@ More information about the project will be provided after the course begins.
 @include-section{project-ideas.scrbl}
 @include-section{rp1.scrbl}
 @include-section{rp2.scrbl}
+@include-section{rp3.scrbl}
 

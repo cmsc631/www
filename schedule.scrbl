@@ -109,7 +109,7 @@
 				 "dimoulas-contract-sat.pdf")}
 			"")
 		  ;; week 9
-		  (list "4/1" "Polymorphism" "" "")
+		  (list "4/1" "Polymorphism" "" @secref{RP3})
 		  (list "4/3" "Constraints for contracts" "" "PS5")
 		  ;; week 10
 		  (list "4/8" "Abstracting abstract machines"

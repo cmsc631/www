@@ -4,6 +4,26 @@
 
 @title{Blog}
 
+@bold{Thu Mar 27 15:18:06 EDT 2014}
+
+@secref{RP3} is up.
+
+@bold{Wed Mar 12 10:44:32 EDT 2014}
+
+@emph{La Technique}
+
+Creative scholarship (@emph{a.k.a.} research) shares much in common
+with any other creative discipline such as programming, playing music,
+wood working, and cooking food.  To be a master of one of these
+disciplines requires being a master of @emph{technique}.  Only after
+mastering technique do you have a chance of being creative.
+
+With that in mind, I thought I'd share
+@link["http://www.nytimes.com/2011/10/19/dining/jacques-pepin-demonstrates-cooking-techniques.html"]{an
+article} on one of my favorite technicians from another discipline:
+Jacques Pépin.  Read it and think of how it relates to your own world.
+``Repeat, repeat, repeat, repeat until it becomes part of yourself.''
+
 @bold{Tue Mar 11 10:40:28 EDT 2014}
 
 I've given some more detail about what should be included in the
