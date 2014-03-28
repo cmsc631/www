@@ -4,6 +4,15 @@
 
 @title{Blog}
 
+@bold{Fri Mar 28 09:20:51 EDT 2014}
+
+There's an excellent article on scientific writing that's been
+republished in Scientific American:
+@link["https://www.americanscientist.org/issues/issue.aspx?id=877&y=0&no&content=true&page=4&css=print"]{The
+Science of Scientific Writing}.  Please read it and try to apply it in
+your own writing.
+
+
 @bold{Thu Mar 27 17:44:05 EDT 2014}
 
 Here is the OCaml code for the machine semantics of the higher-order,
