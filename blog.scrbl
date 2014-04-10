@@ -4,6 +4,234 @@
 
 @title{Blog}
 
+@bold{Thu Apr 10 17:40:10 EDT 2014}
+
+Here is the code for the PCF model, the SPCF model, and a helper
+substitution metafunction we saw in class today.
+
+@codeblock|{
+#lang racket
+(provide v err-abort -->v δ δf PCF PCF-source)
+(require redex/reduction-semantics
+         "subst.rkt")
+(require redex)
+
+(define-language PCF-source
+  ;; Types
+  (T ::= nat (T ... -> T) _)
+  ;; Terms
+  (M ::= X V (M M ...) (μ (X : T) S) (if0 M M M) (err T string))
+  ;; Values
+  (V ::= N O (λ ([X : T] ...) M))
+  ;; Simple terms
+  (S ::= V X)
+  ;; Naturals
+  (N ::= natural)
+  ;; Primitive operations
+  (O ::= add1 sub1 * + quotient pos?)
+  ;; Variables
+  (X ::= variable-not-otherwise-mentioned)
+  ;; Type environments
+  (Γ ::= ((X T) ...)))
+
+(define-extended-language PCF PCF-source
+  ;; Labels
+  (L ::= any)
+  ;; Terms
+  (M ::= .... (@ L M M ...) (err L T string))  
+  ;; Evaluation contexts
+  (E ::= hole (@ L V ... E M ...) (if0 E M M)))
+
+(define v
+  (reduction-relation
+   PCF #:domain M
+   (--> (@ L (λ ([X : T] ..._1) M) V ..._1)
+   (subst (X V) ... M)
+   β)
+   (--> (μ (X : T) S)
+        (subst (X (μ (X : T) S)) S)
+        μ)
+   (--> (@ L O V ...) M
+   (judgment-holds (δ O L (V ...) M))
+   δ)
+   (--> (if0 0 M_0 M_1) M_0 if0-t)
+   (--> (if0 N M_0 M_1) M_1
+   (judgment-holds (nonzero? N))
+   if0-f)))
+
+(define-judgment-form PCF
+  #:mode (nonzero? I)
+  #:contract (nonzero? N)
+  [(nonzero? N)
+   (where (side-condition N (not (zero? (term N)))) N)])
+
+(define err-abort
+  (reduction-relation
+   PCF #:domain M
+   (--> (in-hole E (err L T string))
+   (err L T string)
+   (where #t (not-mt? E))
+   err-abort)))
+
+(define -->v
+  (union-reduction-relations (context-closure v PCF E) err-abort))
+
+(define-metafunction PCF
+  not-mt? : E -> #t or #f
+  [(not-mt? hole) #f]
+  [(not-mt? E) #t])
+
+(define-judgment-form PCF
+  #:mode (δ I I I O)
+  ;; Using this contract will make v non-reusable.
+  ;#:contract (δ O (V ...) M)
+  [(δ O L (N_0 ...) M)
+   (where M (δf O L (N_0 ...)))])
+
+(define-metafunction PCF
+  δf : O L (V ...) -> M
+  [(δf add1 L (N))           ,(add1 (term N))]
+  [(δf sub1 L (N))           ,(max 0 (sub1 (term N)))]
+  [(δf * L (N_0 N_1))        ,(* (term N_0) (term N_1))]
+  [(δf + L (N_0 N_1))        ,(+ (term N_0) (term N_1))]
+  [(δf pos? L (0))            1]
+  [(δf pos? L (N))            0]
+  [(δf quotient L (N_0 0))    (err L nat "Divide by zero")]
+  [(δf quotient L (N_0 N_1)) ,(quotient (term N_0) (term N_1))])
+}|
+
+The SPCF model:
+
+@codeblock|{
+#lang racket
+(provide s sv -->sv havoc δ^ SPCF)
+(require redex/reduction-semantics
+         "pcf.rkt")
+
+(define-extended-language SPCF PCF
+  ;; Values
+  (V .... (• T)))
+
+(define s
+  (reduction-relation
+   SPCF #:domain M
+   (--> (@ L (• (T_0 ..._1 -> T)) V ..._1) (• T) β•) ;; Good stuff
+   (--> (@ L (• (T_0 ..._1 T T_1 ... -> T_o))
+           V_0 ..._1 V V_1 ...)
+        (havoc T V)
+        havoc)
+   (--> (@ L O V ...) M
+   (judgment-holds (δ^ O L (V ...) M))
+   δ^)
+   (--> (if0 (• nat) M_0 M_1) M_0 if•-t)
+   (--> (if0 (• nat) M_0 M_1) M_1 if•-f)))
+
+(define-metafunction SPCF
+  havoc : T M -> M
+  ;; (begin M (loop))
+  [(havoc nat M) (@ 'Λ (λ ([x : nat]) (μ (x : nat) x)) M)]
+  [(havoc (T_0 ... -> T_1) M)
+   (havoc T_1 (@ 'Λ M (• T_0) ...))])
+
+(define sv
+  (union-reduction-relations s (extend-reduction-relation v SPCF)))
+
+(define-metafunction SPCF
+  not-zero? : any -> #t or #f
+  [(not-zero? 0) #f]
+  [(not-zero? any) #t])
+
+(define-metafunction SPCF
+  not-div? : any -> #t or #f
+  [(not-div? div) #f]
+  [(not-div? any) #t])
+
+(define -->sv
+  (union-reduction-relations (context-closure sv SPCF E)
+                             (extend-reduction-relation err-abort SPCF)))
+
+(define-judgment-form SPCF
+  #:mode (δ^ I I I O)
+  #:contract (δ^ O L (V ...) M)
+  [(δ^ quotient L (any (• nat)) (• nat))]
+  [(δ^ quotient L (any (• nat)) (err L nat "Divide by zero"))]
+  [(δ^ quotient L ((• nat) 0)   (err L nat "Divide by zero"))]
+  [(δ^ quotient L ((• nat) N)   (• nat))
+   (side-condition (not-zero? N))]
+  [(δ^ O L (any_0 ... (• nat) any_1 ...) (• nat))
+   (side-condition (not-div? O))])
+
+
+;; Example
+#;
+(require redex)
+#;
+(traces -->sv
+          '(@ ME 
+              (• ((nat -> nat) -> nat))
+              (λ ([x : nat])
+                (@ ME quotient 5 x))))
+}|
+
+The substitution function:
+
+@codeblock|{
+#lang racket
+(provide subst)
+(require redex/reduction-semantics)
+
+;; Subst
+(define-language L (X variable) (T any))
+(define-metafunction L
+  subst : (X any) ... any -> any
+  [(subst (X_1 any_1) (X_2 any_2) ... any_3)
+   (subst-1 X_1 any_1 (subst (X_2 any_2) ... any_3))]
+  [(subst any_3) any_3])
+
+(define-metafunction L
+  subst-1 : X any any -> any
+  ;; 1. X_1 bound, so don't continue in λ body
+  [(subst-1 X_1 any_1 (λ ([X_2 : T_2] ... [X_1 : T_1] [X_3 : T_3] ...) any_2))
+   (λ ([X_2 : T_2] ... [X_1 : T_1] [X_3 : T_3] ...) any_2)
+   (side-condition (not (member (term X_1) (term (X_2 ...)))))]  
+  [(subst-1 X any_1 (μ (X : T) any_2))
+   (μ (X : T) any_2)]
+  
+  ;; 2. general purpose capture avoiding case
+  [(subst-1 X_1 any_1 (λ ([X_2 : T_2] ...) any_2))
+   (λ ([X_new : T_2] ...)
+     (subst-1 X_1 any_1 (subst-vars (X_2 X_new) ... any_2)))
+   (where (X_new ...)
+     ,(variables-not-in (term (X_1 any_1 any_2))
+     			           (term (X_2 ...))))]
+  [(subst-1 X_1 any_1 (μ (X : T) any_2))
+   (μ (X_new : T)
+      (subst-1 X_1 any_1 (subst-vars (X X_new) any_2)))
+   (where (X_new)
+          ,(variables-not-in (term (X_1 any_1 any_2))
+                             (term (X))))]
+  
+  ;; 3. replace X_1 with e_1
+  [(subst-1 X_1 any_1 X_1) any_1]
+  ;; 4. X_1 and X_2 are different, so don't replace
+  [(subst-1 X_1 any_1 X_2) X_2]
+  ;; the last cases cover all other expressions
+  [(subst-1 X_1 any_1 (any_2 ...))
+   ((subst-1 X_1 any_1 any_2) ...)]
+  [(subst-1 X_1 any_1 any_2) any_2])
+
+(define-metafunction L
+  subst-vars : (X any) ... any -> any
+  [(subst-vars (X_1 any_1) X_1) any_1]
+  [(subst-vars (X_1 any_1) (any_2 ...))
+   ((subst-vars (X_1 any_1) any_2) ...)]
+  [(subst-vars (X_1 any_1) any_2) any_2]
+  [(subst-vars (X_1 any_1) (X_2 any_2) ... any_3)
+   (subst-vars (X_1 any_1) (subst-vars (X_2 any_2) ... any_3))]
+  [(subst-vars any) any])
+
+}|
+
 @bold{Wed Apr  9 14:57:11 EDT 2014}
 
 Here is the code for the ``abstract'' abstract machine we developed in
