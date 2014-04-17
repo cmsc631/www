@@ -139,7 +139,7 @@
 		  (list "4/24" "TBD" "" "")
 		  ;; week 13
 		  (list "4/29" "TBD" "" "")
-		  (list "5/1" @color["blue"]{Presentations} 'cont 'cont)
+		  (list "5/1" @color["blue"]{Presentations} 'cont @secref{RP4})
 		  ;; week 14
 		  (list "5/6" @color["blue"]{Presentations} 'cont 'cont)
 		  (list "5/8" @color["blue"]{Presentations} 'cont 'cont)

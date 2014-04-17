@@ -4,6 +4,19 @@
 
 @title{Blog}
 
+@bold{Thu Apr 17 14:35:05 EDT 2014}
+
+The details of the project presentation (@secref{RP4}) are posted.
+
+Here is the randomly assigned schedule for talks:
+
+@itemlist[
+@item{5/1: @gh{proj03}, @gh{proj07}, @gh{proj02}}
+@item{5/6: @gh{proj10}, @gh{proj09}, @gh{proj04}}
+@item{5/8: @gh{proj08}, @gh{proj05}, @gh{proj06}}
+@item{5/13: @gh{proj01}}]
+
+
 @bold{Thu Apr 10 17:40:10 EDT 2014}
 
 Here is the code for the PCF model, the SPCF model, and a helper
