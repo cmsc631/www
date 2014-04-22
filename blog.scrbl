@@ -4,6 +4,12 @@
 
 @title{Blog}
 
+@bold{Tue Apr 22 09:36:46 EDT 2014}
+
+The final problem set is posted.  It is due at midnight on the last
+day of class, which is plenty of time, but plan ahead and work early
+since you have to balance delivering on your research projects.
+
 @bold{Thu Apr 17 14:35:05 EDT 2014}
 
 The details of the project presentation (@secref{RP4}) are posted.

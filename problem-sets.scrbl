@@ -32,6 +32,7 @@ therefore may not to go outside your current partnership to seek help.
 @include-section{ps1.scrbl}
 @include-section{ps2.scrbl}
 @include-section{ps3.scrbl}
+@include-section{ps4.scrbl}
 
 
 
