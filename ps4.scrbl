@@ -10,13 +10,15 @@
 @bold{Purpose:} The goal of this problem set is to practice designing
 and implementing abstract machines and their finite approximations.
 
+You should work with your research project partner on this assignment
+and submit to your research repo.
 
 @section[#:tag-prefix ps]{Problem 1}
 
-Extend the abstract machine from the April 4 lecture (available on the
-@secref{Blog}) to handle all of the features of the B language in
-addition to functions (i.e. add numbers, booleans, conditionals, and
-the usual operations).
+Extend the abstract machine from the April 8 lecture (available on the
+@secref{Blog}, posted April 9) to handle all of the features of the B
+language in addition to functions (i.e. add numbers, booleans,
+conditionals, and the usual operations).
 
 @section[#:tag-prefix ps]{Problem 2}
 
