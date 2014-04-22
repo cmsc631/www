@@ -83,7 +83,7 @@
 				  "Cousot & Cousot"
 				  "cousot-systematic-ai.pdf")}
 
-			"PS4")
+			"")
 		  ;; spring break
 		  (list @color["red"]{3/18}
 			@color["red"]{Spring break}
@@ -110,7 +110,7 @@
 			"")
 		  ;; week 9
 		  (list "4/1" "Polymorphism" "" @secref{RP3})
-		  (list "4/3" "Constraints for contracts" "" "PS5")
+		  (list "4/3" "Constraints for contracts" "" "")
 		  ;; week 10
 		  (list "4/8" "Abstracting abstract machines"
 			@(paper "Abstracting Abstract Machines"
@@ -133,17 +133,19 @@
 				  "Van Horn & Mairson"
 				  "vanhorn-kcfa-exptime.pdf")}
 			"")
-		  (list "4/17" "Type checking & inference via reduction" "III.23" "PS6")
+		  (list "4/17" "Type checking & inference via reduction" "III.23" "")
 		  ;; week 12
 		  (list "4/22" "Dependent types" "" "")
 		  (list "4/24" "TBD" "" "")
 		  ;; week 13
-		  (list "4/29" "TBD" "" "")
-		  (list "5/1" @color["blue"]{Presentations} 'cont @secref{RP4})
+		  (list "4/29" "TBD" "" "PS4")
+		  (list "5/1" @color["blue"]{Presentations: Projects 3, 7, 2} 'cont @secref{RP4})
 		  ;; week 14
-		  (list "5/6" @color["blue"]{Presentations} 'cont 'cont)
-		  (list "5/8" @color["blue"]{Presentations} 'cont 'cont)
+		  (list "5/6" @color["blue"]{Presentations: Projects 10, 9, 4} 'cont 'cont)
+		  (list "5/8" @color["blue"]{Presentations: Projects 8, 5, 6} 'cont 'cont)
 		  ;; week 15
-		  (list "5/13" @color["blue"]{Presentations} 'cont 'cont))]
+		  (list "5/13" @color["blue"]{Presentations: Project 1} 'cont 'cont)
+		  ;; Final
+		  (list "5/21" @color["green"]{Final exam} 'cont "RP5"))]
 
 
