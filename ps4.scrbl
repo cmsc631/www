@@ -5,8 +5,6 @@
 
 @(define ps "ps4")
 
-test
-
 @bold{Due:} Midnight, May 13
 
 @bold{Purpose:} The goal of this problem set is to practice designing
