@@ -1,0 +1,262 @@
+\NeedsTeXFormat{LaTeX2e}
+\documentclass[11pt]{article}
+%\usepackage{times}
+\usepackage{url}
+\usepackage{amsmath}
+% \usepackage{mathpazo}
+\usepackage{xltxtra}
+\usepackage{fancyhdr}
+\usepackage{xunicode}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathpartir}
+\usepackage{exercise}
+%\usepackage{fontspec}
+\usepackage{newunicodechar}
+\newtheorem{claim}{Claim}[section]
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\usepackage[nohead,nofoot,vmargin=1.25in,hmargin=1.25in]{geometry}
+
+\setmainfont[Mapping=tex-text]{Bitstream Iowan Old Style BT}
+
+
+\newcommand{\deftech}[1]{\textbf{#1}}
+
+\newcommand\mrel{\mathop{\mathbf{r}}}
+\newcommand\morel{\mathop{\mathbf{r}'}}
+\newcommand\menv{\rho}
+\newcommand\mval{v}
+\newcommand\mans{a}
+\newcommand\mint{i}
+\newcommand\moint{j}
+\newcommand\mbool{b}
+\newcommand\Bool{\mathit{Bool}}
+\newcommand\Int{\mathit{Int}}
+
+\newcommand\plug[2]{#1[#2]}
+
+\newcommand\mexp{e}
+\newcommand\merr{r}
+
+\newcommand\hole{\Box}
+\newcommand\mctx{\mathcal{C}}
+\newcommand\mectx{\mathcal{E}}
+
+\newcommand\beval[3]{{#1} \vdash {#2} \Downarrow {#3}}
+
+\newcommand\dom{\mathsf{dom}}
+
+\newcommand{\syntax}[1]{{\tt #1}}
+
+\newcommand\Err{\mathit{Err}}
+\newcommand\Plus{\mathit{Plus}}
+\newcommand\Mult{\mathit{Mult}}
+\newcommand\Succ{\mathit{Succ}}
+\newcommand\Pred{\mathit{Pred}}
+\newcommand\Eq{\mathit{Eq}}
+\newcommand\True{\mathit{True}}
+\newcommand\False{\mathit{False}}
+\newcommand\If{\mathit{If}}
+\newcommand\Div{\mathit{Div}}
+
+\newcommand\reduce{\mathop{\mathbf{a}}}
+
+\newcommand\areducename{\mathbf{a}}
+\newcommand\areduce[2]{#1\;\areducename\;#2}
+
+\newcommand\step{\rightarrow_\mathbf{a}}
+\newcommand\multistep{\rightarrow^\star_\mathbf{a}}
+
+
+
+\newcommand\astdstep{\longmapsto_{\reduce}}
+\newcommand\astdmultistep{\longmapsto^\star_{\reduce}}
+
+\newcommand\breducename{\mathbf{b}}
+\newcommand\bvreducename{\mathbf{bv}}
+\newcommand\bstepname{\rightarrow_{\breducename}}
+\newcommand\bmultistepname{\rightarrow^\star_{\breducename}}
+
+\newcommand\bmultistep[3]{#1\vdash #2\;\bmultistepname\;#3}
+\newcommand\bstdstepname{\longmapsto_{\breducename}}
+\newcommand\bstdstep[3]{#1\vdash #2\;{\longmapsto_{\breducename}}\;#3}
+\newcommand\bstdmultistep[3]{#1\vdash #2\;{\longmapsto^\star_{\breducename}}\;#3}
+
+\newcommand\breduce[3]{#1 \vdash {#2}\;\breducename\; {#3}}
+\newcommand\bvreduce[3]{#1 \vdash {#2}\;\bvreducename\; {#3}}
+\newcommand\bstep[3]{#1 \vdash {#2}\;\rightarrow_{\breducename}\; {#3}}
+\newcommand\bclosedstep[2]{{#1}\;\rightarrow_{\breducename}\; {#2}}
+
+\newcommand\laxparstep{\rightrightarrows_\mathbf{a}}
+\newcommand\maxparstep{\rightrightarrows'_\mathbf{a}}
+
+
+\newcommand\Arith{\mathcal{A}}
+\newcommand\Barith{\mathcal{B}}
+\newcommand\Farith{\mathcal{F}}
+
+\newcommand\Plang{\mathcal{PB}}
+\newcommand\PPlang{\mathcal{PB\&J}}
+
+\newcommand\Var{\mathit{Var}}
+
+\newcommand{\mvar}{x}
+\newcommand\s[1]{\mathit{#1}}
+
+
+%% \newcommand\exercise[1]{
+%% \vskip 1em
+%% \noindent
+%% \textbf{Exercise:} {#1}}
+
+%\titlefont{\huge\bfseries}
+
+\begin{document}
+
+\begin{center}
+{\bf CMSC631 (Practice) Exam}\\
+{\bf Spring, 2014}
+\end{center}
+
+
+\def\ExerciseName{Problem}
+
+Consider the following syntax of the programming language $\Plang$ (``Peanut Butter''):
+
+\newcommand\Cons{\mathit{Pair}}
+\newcommand\Nil{\mathit{Nil}}
+\newcommand\IsNil{\mathit{IsNil}}
+\newcommand\ProjL{\mathit{Proj_L}}
+\newcommand\ProjR{\mathit{Proj_R}}
+\newcommand\Cond{\mathit{Cond}}
+\newcommand\List{\mathit{List}}
+
+\[
+\begin{array}{lrcll}
+ \mathit{Exp} 
+               & e & ::= & \True\ |\ \False\\
+               &   & |   & \Cons(\mexp,\mexp)\\
+               &   & |   & \ProjL(e)\\
+               &   & |   & \ProjR(e)\\
+               &   & |   & \Cond(e,e,e)
+\end{array}
+\]
+
+The Peanut Butter language contains pairs and booleans.  The behavior
+of $\Plang$ programs is a bit quirky; we describe how $\Plang$
+programs work informally below:
+
+\begin{itemize}
+\item Values in $\Plang$ include booleans and pairs of values (note:
+  this is a recursive definition); pairs are constructed with $\Cons$.
+
+\item Pair values are deconstructed with $\ProjL$ and $\ProjR$, which
+  project out the left and right component of a pair, respectively.
+  So for example, $\ProjL(\Cons(\mexp_1,\mexp_2)) = \mexp_1$.
+  Apply $\ProjL$ or $\ProjR$ to non-pair values is an error.
+
+\item $\Cond(\mexp_1,\mexp_2,\mexp_3)$ is a conditional form, which
+  selects $\mexp_2$ to evaluate whenever $\mexp_1$ evaluates to a
+  \emph{truish} value, and selects $\mexp_2$ to evaluate otherwise.  A
+  truish value is any value that is not $\False$.
+
+  So for example, $\Cond(\False, \mexp_1, \mexp_2) = \mexp_2$, but
+  $\Cond(\Cons(\False,\False),\mexp_1,\mexp_2) = \mexp_1$.
+\end{itemize}
+
+
+\newpage
+\begin{exercise}
+Give a formal definition of the set of values in $\Plang$.
+\end{exercise}
+\vspace{1.2in}
+
+\begin{exercise}
+Define a natural semantics for $\Plang$. Show the derivation for
+exaluating the program:
+\[
+\ProjL(\Cond(\Cons(\True,\False),\Cons(\False,\True),\Cons(\True,\False)))
+\]
+%
+(Your semantics should only specify the ``good'' behavior of programs
+and doesn't need to bother with erroneous programs.)
+\end{exercise}
+
+\newpage
+It turns out that even though $\Plang$ only has pairs and booleans for
+values, $\Plang$ programmers tend to think in terms of ``lists''.
+Lists are either empty or consist of an element paired together with
+another list.  An empty list is represented by any value that is not a
+pair.  So for example, the list of three $\True$ values could be
+represented:
+\[
+\Cons(\True,\Cons(\True,\Cons(\True,\True)))\text.
+\]
+%
+Moreover, $\Plang$ programmers think in terms of \emph{heterogenous}
+lists, i.e. lists of the same kinds of elements.  So for example, a
+$\Plang$ programmer thinks in terms of ``a list of booleans'' or ``a
+list of lists of booleans,'' etc.
+
+With that in mind we can formalize a notion of types for $\Plang$:
+\[
+\begin{array}{lrcll}
+ \mathit{Type} 
+               & t & ::= & \Bool\\
+               &   &  |\ & \List(t)
+\end{array}
+\]
+
+\vspace{.5in}
+
+\begin{exercise}
+Define a type judgement relation for $\Plang$ programs.  Your type
+system should accept the program given in problem 2 as having type
+$\Bool$.  Give the type derivation for the program in problem 2.  Give
+an example of a program that is ill-typed.  (Note: there will be some
+quirks in the type system reflecting the quirks in $\Plang$.  For
+example, what should the type(s) of $\True$ be?)
+\end{exercise}
+
+
+\newpage
+\begin{exercise}
+Prove type soundness: if a program is well-typed, it evaluates to a
+value of that type.
+\end{exercise}
+
+\newpage
+After years of use, the $\Plang$ language was replaced by it's
+successor $\PPlang$, which added the following features to $\Plang$:
+
+\begin{itemize}
+\item Using the $\mathit{J}(\mexp)$ operator, programs could jump to end of
+  evaluation, making the value of $\mexp$ the final result of the computation.
+
+\item Programs no longer consisted of single expressions $\mexp$, but
+  instead consist of any number function definitions followed by an
+  expression that can make use of those definitions.  Functions take a
+  single argument and may be (mutually) recursive.  Functions are
+  \emph{not} values in $\PPlang$.
+
+\item Projection operations were replaced by a pattern maching
+  construct: $\mathit{Let}(x,y,e_1,e_2)$ which evaluates $e_1$ to a
+  pair then binds $x$ to the left component and $y$ to the right,
+  within the scope of $e_2$.
+\end{itemize}
+
+\vspace{.5in}
+
+\begin{exercise}
+Give a formal definition of the syntax of $\PPlang$ programs.
+\end{exercise}
+
+\newpage
+
+\begin{exercise}
+Define a small step reduction semantics for $\PPlang$.
+\end{exercise}
+
+\end{document}
+
