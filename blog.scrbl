@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Tue May  6 15:13:13 EDT 2014}
+
+The practice exam is @link["exam/exam.pdf"]{here}.
+
 @bold{Tue Apr 22 09:36:46 EDT 2014}
 
 The final problem set (@secref{PS4}) is posted.  It is due at
