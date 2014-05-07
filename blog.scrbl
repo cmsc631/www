@@ -4,6 +4,56 @@
 
 @title{Blog}
 
+@bold{Wed May  7 14:23:48 EDT 2014}
+
+Emily has pointed out a bug in the abstract machine code previously
+posted on the blog, and part of the current assignment, in the code
+for @code{-->_m*}.
+
+You can trigger the bug by running @code{(viz* '(App (Lam x x) (Lam y
+y)))}, which complains about no matching clauses for:
+@codeblock{
+(alloc (ev (App (Lam x x) (Lam y y)) () () Mt))
+}
+
+First, let's formulate a failing test case:
+@codeblock{
+(require rackunit)
+(check-not-exn (λ () (ev* '(App (Lam x x) (Lam y y)))))
+}
+
+The issue, as indicated in the error message, is that we don't have a
+case in @code{alloc} for the particular state that requested space
+allocated.  If you look at @code{alloc}, you see that is a
+metafunction for the language @code{L}.  But this is a bug in
+@code{-->_m*}, i.e. an @code{L*} relation.  So it's not surprising
+that we're missing a case; remember the step from @code{-->_m} to
+@code{-->_m*} involved adding a new place where we allocate; when we
+encounter an application, instead of pushing on the argument on the
+stack, we allocate a pointer to the new stack frame.  This is the case
+not considered in the original @code{alloc} function.
+
+The fix is to introduce an allocation function suited for
+@code{-->_m*}, which handles this case.  It can be an extension of the
+original:
+@codeblock{
+(define-metafunction/extension alloc L*
+  alloc* : ς -> a
+  [(alloc* (ev (App e_0 e_1) ρ ([a ↦ _] ...) κ))
+   ,(+ 1 (apply max -1
+                (filter integer?
+                        (term (a ...)))))])
+}
+
+After replacing calls to @code{alloc} with @code{alloc*} in
+@code{-->_m*}, our test passes.
+
+Note: I spotted two more errors in looking into this.  1) The original
+@code{alloc} code has more cases than needed.  See if you can spot
+why.  2) The definition of @code{ev^} uses
+@code{apply-reduction-relation}, but it should use
+@code{apply-reduction-relation*}.
+
 @bold{Tue May  6 15:13:13 EDT 2014}
 
 The practice exam is @link["exam/exam.pdf"]{here}.
