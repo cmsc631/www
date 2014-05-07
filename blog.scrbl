@@ -4,6 +4,21 @@
 
 @title{Blog}
 
+@bold{Wed May  7 17:41:45 EDT 2014}
+
+Becca has made a bold conjecture:
+
+@verbatim{
+For problem 3 on the practice exam, I don't think it's possible to produce
+an example of an ill-typed program.
+}
+
+Is she correct?  If she's correct, how could provide evidence
+supporting her conjecture?
+
+(By the way, it may be that she is correct, which would make problem 3
+a ``trick question,'' which I promise not to give on the real exam.)
+
 @bold{Wed May  7 14:23:48 EDT 2014}
 
 Emily has pointed out a bug in the abstract machine code previously
