@@ -4,6 +4,21 @@
 
 @title{Blog}
 
+@bold{Thu May  8 15:39:30 EDT 2014}
+
+There is another problem with the exam.  Problem 4 asks you to prove
+progress and preservation, but progress clearly does not hold.
+
+Since there have been several problems with the practice exam, I will
+provide a new practice exam later today.  (It will be a close variant
+of the current practice exam.)
+
+@bold{Thu May  8 09:16:15 EDT 2014}
+
+There is a typo on the practice exam: where it says
+@emph{heterogeneous} is should say @emph{homogeneous}.  The
+@link["exam/exam.pdf"]{PDF} has been updated.  (Thanks to Phil for spotting.)
+
 @bold{Wed May  7 17:41:45 EDT 2014}
 
 Becca has made a bold conjecture:
