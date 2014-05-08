@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Thu May  8 19:19:55 EDT 2014}
+
+A new practice exam is available @link["exam/exam.v2.pdf"]{here}.
+
 @bold{Thu May  8 15:39:30 EDT 2014}
 
 There is another problem with the exam.  Problem 4 asks you to prove
