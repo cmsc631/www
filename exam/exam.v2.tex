@@ -115,7 +115,7 @@
 \begin{document}
 
 \begin{center}
-{\bf CMSC631 (Practice) Exam}\\
+{\bf CMSC631 (Practice) Exam (v2)}\\
 {\bf Spring, 2014}
 \end{center}
 
@@ -136,6 +136,7 @@ Consider the following syntax of the programming language $\Plang$ (``Peanut But
 \begin{array}{lrcll}
  \mathit{Exp} 
                & e & ::= & \True\ |\ \False\\
+               &   & |   & \Nil\\
                &   & |   & \Cons(\mexp,\mexp)\\
                &   & |   & \ProjL(e)\\
                &   & |   & \ProjR(e)\\
@@ -143,18 +144,19 @@ Consider the following syntax of the programming language $\Plang$ (``Peanut But
 \end{array}
 \]
 
-The Peanut Butter language contains pairs and booleans.  The behavior
+The Peanut Butter language contains pairs, nil, and booleans.  The behavior
 of $\Plang$ programs is a bit quirky; we describe how $\Plang$
 programs work informally below:
 
 \begin{itemize}
-\item Values in $\Plang$ include booleans and pairs of values (note:
-  this is a recursive definition); pairs are constructed with $\Cons$.
+\item Values in $\Plang$ include booleans, nil, and pairs of values
+  (note: this is a recursive definition); pairs are constructed with
+  $\Cons$.
 
 \item Pair values are deconstructed with $\ProjL$ and $\ProjR$, which
   project out the left and right component of a pair, respectively.
   So for example, $\ProjL(\Cons(\mexp_1,\mexp_2)) = \mexp_1$.
-  Apply $\ProjL$ or $\ProjR$ to non-pair values is an error.
+  Applying $\ProjL$ or $\ProjR$ to non-pair values is an error.
 
 \item $\Cond(\mexp_1,\mexp_2,\mexp_3)$ is a conditional form, which
   selects $\mexp_2$ to evaluate whenever $\mexp_1$ evaluates to a
@@ -184,14 +186,13 @@ and doesn't need to bother with erroneous programs.)
 \end{exercise}
 
 \newpage
-It turns out that even though $\Plang$ only has pairs and booleans for
-values, $\Plang$ programmers tend to think in terms of ``lists''.
-Lists are either empty or consist of an element paired together with
-another list.  An empty list is represented by any value that is not a
-pair.  So for example, the list of three $\True$ values could be
-represented:
+It turns out that even though $\Plang$ only has pairs, nil, and
+booleans for values, $\Plang$ programmers tend to think in terms of
+``lists''.  Lists are either empty or consist of an element paired
+together with another list.  An empty list is represented by $\Nil$.  So
+for example, the list of three $\True$ values could be represented:
 \[
-\Cons(\True,\Cons(\True,\Cons(\True,\True)))\text.
+\Cons(\True,\Cons(\True,\Cons(\True,\Nil)))\text.
 \]
 %
 Moreover, $\Plang$ programmers think in terms of \emph{homogeneous}
@@ -214,17 +215,9 @@ With that in mind we can formalize a notion of types for $\Plang$:
 Define a type judgement relation for $\Plang$ programs.  Your type
 system should accept the program given in problem 2 as having type
 $\Bool$.  Give the type derivation for the program in problem 2.  Give
-an example of a program that is ill-typed.  (Note: there will be some
-quirks in the type system reflecting the quirks in $\Plang$.  For
-example, what should the type(s) of $\True$ be?)
+an example of a program that is ill-typed.
 \end{exercise}
 
-
-\newpage
-\begin{exercise}
-Prove type soundness: if a program is well-typed, it evaluates to a
-value of that type.
-\end{exercise}
 
 \newpage
 After years of use, the $\Plang$ language was replaced by it's
