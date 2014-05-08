@@ -135,10 +135,10 @@
 			"")
 		  (list "4/17" "Type checking & inference via reduction" "III.23" "")
 		  ;; week 12
-		  (list "4/22" "Dependent types" "" "")
-		  (list "4/24" "TBD" "" "")
+		  (list "4/22" "Dependent types" "Kris Micinski lecture" "")
+		  (list "4/24" "System F" "" "")
 		  ;; week 13
-		  (list "4/29" "TBD" "" "PS4")
+		  (list "4/29" "Slack" "" "PS4")
 		  (list "5/1" @color["blue"]{Presentations: Projects 3, 7, 2} 'cont @secref{RP4})
 		  ;; week 14
 		  (list "5/6" @color["blue"]{Presentations: Projects 10, 9, 4} 'cont 'cont)
