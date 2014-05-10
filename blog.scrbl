@@ -4,6 +4,11 @@
 
 @title{Blog}
 
+@bold{Sat May 10 10:38:55 EDT 2014}
+
+Fixed a small holdover bug in problem 2 of the revised practice exam
+pointed out by Becca.
+
 @bold{Thu May  8 19:19:55 EDT 2014}
 
 A new practice exam is available @link["exam/exam.v2.pdf"]{here}.
