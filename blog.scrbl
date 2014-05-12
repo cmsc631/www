@@ -4,6 +4,47 @@
 
 @title{Blog}
 
+@bold{Mon May 12 10:21:18 EDT 2014}
+
+Javran asked: ``How can I "compose" two reduction relations together?
+Say I have two reduction relations @code{-->_m^1} and @code{-->gc^1},
+whose domain and codomain are all @code{ς}, I want to apply
+@code{-->_m^1} and then @code{-->gc^1}.''
+
+Here is small example that provides a solution to Javran's problem:
+
+@codeblock{
+#lang racket
+(require redex/reduction-semantics)
+(define-language L
+  (n ::= number))
+
+(define -->_1_2
+  (reduction-relation
+   L
+   #:domain n
+   [--> n_1 n_3
+        (where (n_a ... n_2 n_b ...)
+               ,(apply-reduction-relation -->_1 (term n_1)))
+        (where (n_c ... n_3 n_d ...)
+               ,(apply-reduction-relation -->_2 (term n_2)))]))
+
+(define -->_1
+  (reduction-relation
+   L #:domain n
+   [--> n ,(add1 (term n))]))
+
+(define -->_2
+  (reduction-relation
+   L #:domain n
+   [--> n ,(sqr (term n))]))
+}
+
+(You could even go a step further and write a function that consumes
+two reduction relations and produces their sequential composition.)
+
+
+
 @bold{Sat May 10 10:38:55 EDT 2014}
 
 Fixed a small holdover bug in problem 2 of the revised practice exam
