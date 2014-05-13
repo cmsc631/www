@@ -4,6 +4,13 @@
 
 @title{Blog}
 
+@bold{Tue May 13 15:26:28 EDT 2014}
+
+Changes to end of semester plan: the deadline for the last homework is
+extended to May 21, midnight; there will not a be a final.  Final
+write-ups of your project are still due May 21 (more details will be
+posted shortly).
+
 @bold{Mon May 12 10:21:18 EDT 2014}
 
 Javran asked: ``How can I "compose" two reduction relations together?
