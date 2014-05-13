@@ -5,10 +5,11 @@
 
 @(define ps "ps4")
 
-@bold{Due:} Midnight, May 13
+@bold{Due:} Midnight, May 21
 
-@bold{Purpose:} The goal of this problem set is to practice designing
-and implementing abstract machines and their finite approximations.
+@bold{Purpose:} The goal of this take home exam is to demonstrate you
+can design and implement abstract machines and their finite
+approximations.
 
 You should work with your research project partner on this assignment
 and submit to your research repo.

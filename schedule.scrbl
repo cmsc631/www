@@ -138,14 +138,14 @@
 		  (list "4/22" "Dependent types" "Kris Micinski lecture" "")
 		  (list "4/24" "System F" "" "")
 		  ;; week 13
-		  (list "4/29" "Slack" "" "PS4")
+		  (list "4/29" "Slack" "" "")
 		  (list "5/1" @color["blue"]{Presentations: Projects 3, 7, 2} 'cont @secref{RP4})
 		  ;; week 14
 		  (list "5/6" @color["blue"]{Presentations: Projects 10, 9, 4} 'cont 'cont)
 		  (list "5/8" @color["blue"]{Presentations: Projects 8, 5, 6} 'cont 'cont)
 		  ;; week 15
 		  (list "5/13" @color["blue"]{Presentations: Project 1} 'cont 'cont)
-		  ;; Final
-		  (list "5/21" @color["green"]{Final exam} 'cont "RP5"))]
+		  ;; Final                  
+		  (list "5/21" @color["green"]{Final exam} 'cont @elem{@secref{PS4} and RP5}))]
 
 
