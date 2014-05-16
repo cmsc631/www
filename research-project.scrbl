@@ -10,4 +10,5 @@ More information about the project will be provided after the course begins.
 @include-section{rp2.scrbl}
 @include-section{rp3.scrbl}
 @include-section{rp4.scrbl}
+@include-section{rp5.scrbl}
 

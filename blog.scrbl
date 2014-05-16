@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Fri May 16 17:05:23 EDT 2014}
+
+Details of @secref{RP5} are up.
+
 @bold{Tue May 13 15:26:28 EDT 2014}
 
 Changes to end of semester plan: the deadline for the last homework is

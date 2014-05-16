@@ -146,6 +146,6 @@
 		  ;; week 15
 		  (list "5/13" @color["blue"]{Presentations: Project 1} 'cont 'cont)
 		  ;; Final                  
-		  (list "5/21" @color["green"]{Final exam} 'cont @elem{@secref{PS4} and RP5}))]
+		  (list "5/21" @color["green"]{Final exam} 'cont @elem{@secref{PS4} and @secref{RP5}}))]
 
 
