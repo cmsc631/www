@@ -3,7 +3,7 @@
 
 @title[]{CMSC631: Program Analysis and Understanding}
 
-@emph{Spring, 2014}
+@emph{Fall, 2014}
 
 The course has two objectives. The first one is to introduce students
 to the complementary research areas of @emph{programming languages}
@@ -22,6 +22,14 @@ ask/articulate questions and how to recognize elements of solutions.
 
 @bold{Office hours:} Wed 1:30--3:30pm 3439 AVW, or by appointment.
 
+@bold{Communication:} There is a course @secref{Blog} where class
+announcements are made.  You are expected to check the blog every
+day. There is also a
+@link["http://piazza.com/umd/fall2014/cmsc631/home"]{Piazza forum}
+where you can communicate with other members of the class
+(@link["http://piazza.com/umd/fall2014/cmsc631"]{sign-up}).  The best
+way to communicate with the instructor is via email or office hours.
+
 @bold{Prerequisites:} The course assumes that you know how to design
 (recursive) programs (systematically) and that you have encountered
 inductive proofs.
@@ -38,7 +46,7 @@ design of programs. It is quite possible that you have acquired the
 necessary background via alternative approaches.
 
 @bold{Problem sets:} There will be problem sets due approximately
-every two weeks (although @seclink["PS1"]{the first problem set is due on 1/30!}).
+every two weeks (although @seclink["PS1"]{the first problem set is due on 9/4!}).
 
 The problem sets will serve to reinforce the technical
 material. Some problems will ask you to solve paper and pencil
@@ -76,6 +84,17 @@ collaborate with others.
 the above at any time during the course.  This is the first time I am
 teaching this course; things are bound to emerge over the semester
 that will require structural changes to the course.  Stay limber.
+
+@bold{Accomodations:} Any student eligible for and requesting
+reasonable academic accommodations due to a disability is requested to
+provide, to the instructor in office hours, a letter of accommodation
+from the Office of Disability Support Services (DSS) within the first
+two weeks of the semester.
+
+If you have religious observances that prevent you from attending
+class or submitting coursework, please provide a list of all observed
+holidays during the semester by the end of the first week of classes.
+
 
 @include-section{texts.scrbl}
 @include-section{schedule.scrbl}

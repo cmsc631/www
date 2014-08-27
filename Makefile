@@ -4,4 +4,4 @@ dummy:
 push:	
 	cp -r papers/ cmsc631/papers/
 	cp -r exam/ cmsc631/exam/
-	rsync -avz cmsc631 umd:/fs/www/class/spring2014
+	rsync -avz cmsc631 umd:/fs/www/class/fall2014

@@ -6,12 +6,12 @@
 
 @bold{Pair Programming}
 
-You must work on all problem sets in pairs. Pair programming means
-that you use one computer and one keyboard whenever you work on any
-part of the problem set. One partner, called @emph{pilot}, uses the
-keyboard, while the other one---appropriately called
-@emph{co-pilot}---watches. The co-pilot should look out for mistakes
-and enforce design principles.
+With the exception of @secref{PS1}, you must work on all problem sets
+in pairs. Pair programming means that you use one computer and one
+keyboard whenever you work on any part of the problem set. One
+partner, called @emph{pilot}, uses the keyboard, while the other
+one---appropriately called @emph{co-pilot}---watches. The co-pilot
+should look out for mistakes and enforce design principles.
 
 I recommend switching roles in the middle of problems not (just)
 between problems. Doing so ensures that design knowledge is truly

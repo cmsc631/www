@@ -4,6 +4,15 @@
 
 @title{Blog}
 
+
+@bold{Mon Aug 25 15:03:22 EDT 2014}
+
+Welcome to CMSC631!  This ``blog'' is where course announcements will be
+made; be sure to check it regularly.  -- David
+
+
+@;{
+
 @bold{Fri May 16 17:05:23 EDT 2014}
 
 Details of @secref{RP5} are up.
@@ -1367,3 +1376,4 @@ first lecture on Thursday!
 
 Welcome to CMSC631!  This ``blog'' is where course announcements will be
 made; be sure to check it regularly.  -- David
+}
