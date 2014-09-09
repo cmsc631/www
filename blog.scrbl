@@ -4,6 +4,64 @@
 
 @title{Blog}
 
+@bold{Tue Sep  9 10:15:27 EDT 2014}
+
+I receieved almost all of the PS1 submissions.  There was one student
+who didn't submit anything and a couple students who failed to provide
+some of the requested deliverables.  If you are one of these students,
+you should have received email.
+
+I've created the initial partner assignments and repositories on
+github:
+
+@itemlist[
+@item{pair10: labichn}
+@item{pair11: leofanxiong, decaturk}
+@item{pair12: jreeseue, alexwzk}
+@item{pair13: bjkwon90, andrewpachulski}
+@item{pair14: aidmony, ERJIALI}
+@item{pair15: eldr4d, ENOTTY}
+]
+
+For each pair, a private repository has been created for you.  Use
+this repository for your work.  If some other system is more useful
+for collaborating, feel free to use it, but you must commit your work
+to the repository by midnight of the due date for it to be graded.
+
+The results of the language beauty contest are as follows:
+
+@itemlist[
+@item{C: 3}
+@item{Python: 3}
+@item{Ruby: 2}
+@item{Agda: 1}
+@item{C++: 1}
+@item{Java: 1}
+@item{JavaScript: 1}
+@item{Perl: 1}
+@item{Racket: 1}
+]
+
+I will commit marked up copies of your essay to your pair's repository
+by Thursday, September 11, giving you a week to make edits for
+@secref{PS2}.
+
+@bold{Wed Aug 27 19:30:43 EDT 2014}
+
+Welcome to CMSC 631, Program Analysis and Understanding.
+
+I wanted to make you aware a few things before class starts:
+
+@itemlist[#:style 'ordered
+@item{The course web page is located at
+@link["http://ter.ps/cmsc631f14"]{http://ter.ps/cmsc631f14}.  Please
+read it this week.}
+
+@item{There is @bold{no lecture} on 9/2 or 9/4---I have to travel for a
+conference.  However, there is an assignment due on 9/4.}]
+
+Looking forward to seeing you soon!
+
 
 @bold{Mon Aug 25 15:03:22 EDT 2014}
 

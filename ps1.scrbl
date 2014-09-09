@@ -27,7 +27,9 @@ so don't worry if you're not a wizard (I'm certainly not).
 
 Order the
 @link["http://mitpress.mit.edu/books/semantics-engineering-plt-redex"]{book}
-if you haven't already.
+if you haven't already.  The first reading assignment is available in
+PDF (see the @secref{Schedule}), but you will need the book for later
+reading assignments.
 
 @section{Problem 3}
 
@@ -88,7 +90,7 @@ about
 @link["http://www.ccs.neu.edu/home/matthias/HtDP2e/i2-3.html"]{quote
 and unquote}.
 
-Come prepared with questions in class on Thursday.  (You do not need
+Come prepared with questions in class on Tuesday.  (You do not need
 turn anything in for this part of the assignment.)
 
 

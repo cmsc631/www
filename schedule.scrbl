@@ -24,34 +24,34 @@
 	"9/23"
 	"9/25"
 	"9/30"
-	"10/2"
-	(list "10/7" @secref{RP2})
-	(list "10/9" @secref{PS3})
+	(list "10/2" "PS3")
+	(list "10/7" @secref{RP1})
+	"10/9"
 	"10/14"
-	"10/16"
+	(list "10/16" "PS4")
 	"10/21"
 	"10/23"
 	"10/28"
-	"10/30"
-	(list "11/4" @secref{RP3})
+	(list "10/30" "PS5")
+	(list "11/4" "RP2")
 	"11/6"
 	"11/11"
-	"11/13"
+	(list "11/13" "PS6")
 	"11/18"
 	"11/20"
 	"11/25"
-	"11/27"
+	(list "11/27" "PS7")
 	"12/2"
-	(list "12/4" @secref{RP4})
+	(list "12/4" "RP3")
 	"12/9"
 	"12/11"
-	(list "12/18 (?)" @elem{@secref{PS4} and @secref{RP5}})))
+	(list "12/18 (?)" "RP4")))
 
 @(define topics+readings
   (list (list @color["red"]{No class}
 	      @elem{@link["http://matt.might.net/articles/phd-school-in-pictures/"]{Illustrated Guide to a PhD}, Might})
 	(list @color["red"]{No class}
-	      "I.1, I.2")
+	      @elem{@link["papers/redex-preface.pdf"]{Preface}, @link["papers/redex-I.1.pdf"]{I.1}, @link["papers/redex-I.2.pdf"]{I.2}})
 	(list "Welcome; Syntax & semantics"
 	      "II.11")
 	(list "Redex" "I.3")
