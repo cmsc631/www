@@ -6,7 +6,7 @@
 
 @bold{Tue Sep  9 10:15:27 EDT 2014}
 
-I receieved almost all of the PS1 submissions.  There was one student
+I received almost all of the PS1 submissions.  There was one student
 who didn't submit anything and a couple students who failed to provide
 some of the requested deliverables.  If you are one of these students,
 you should have received email.
@@ -21,6 +21,7 @@ github:
 @item{pair13: bjkwon90, andrewpachulski}
 @item{pair14: aidmony, ERJIALI}
 @item{pair15: eldr4d, ENOTTY}
+@item{pair16: reflect9}
 ]
 
 For each pair, a private repository has been created for you.  Use
