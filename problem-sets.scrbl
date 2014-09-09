@@ -3,7 +3,6 @@
 
 @title[#:style '(toc)]{Problem sets}
 
-
 @bold{Pair Programming}
 
 With the exception of @secref{PS1}, you must work on all problem sets
@@ -29,10 +28,13 @@ eliminate small obstacles in the reading and programming material.
 Nevertheless, you are responsible for your PhD and your knowledge. You
 therefore may not to go outside your current partnership to seek help.
 
+@local-table-of-contents[#:style 'immediate-only]
+
+
 @include-section{ps1.scrbl}
 @include-section{ps2.scrbl}
-@include-section{ps3.scrbl}
-@include-section{ps4.scrbl}
+@;include-section{ps3.scrbl}
+@;include-section{ps4.scrbl}
 
 
 
