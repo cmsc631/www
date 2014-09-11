@@ -4,6 +4,24 @@
 
 @title{Blog}
 
+@bold{Tue Sep  9 14:35:05 EDT 2014}
+
+@secref{PS2} will require you to do some programming in OCaml.
+CMSC 330 has a good
+@link["http://www.cs.umd.edu/class/spring2013/cmsc330/lectures/ocaml.pdf"]{slide
+deck} on programming in OCaml.
+
+There's an Emacs mode I use called
+@link["http://tuareg.forge.ocamlcore.org/"]{Tuareg}.
+
+
+@bold{Thu Sep 11 09:25:26 EDT 2014}
+
+I've updated the partner assignments (by editing the blog post below).
+I've added real names for convenience.  Everyone's team should have
+writeable private repos.  Please veryify @bold{before} @secref{PS2}'s
+due date and let me know if there's a problem.
+
 @bold{Tue Sep  9 10:15:27 EDT 2014}
 
 I received almost all of the PS1 submissions.  There was one student
@@ -15,13 +33,14 @@ I've created the initial partner assignments and repositories on
 github:
 
 @itemlist[
-@item{pair10: labichn}
-@item{pair11: leofanxiong, decaturk}
-@item{pair12: jreeseue, alexwzk}
-@item{pair13: bjkwon90, andrewpachulski}
-@item{pair14: aidmony, ERJIALI}
-@item{pair15: eldr4d, ENOTTY}
-@item{pair16: reflect9}
+@item{pair10: labichn (Nicholas Labich)}
+@item{pair11: leofanxiong (Xiong Fan), decaturk (Kevin Decatur)}
+@item{pair12: jreeseue (Josh Reese), alexwzk (Zikai Wen)}
+@item{pair13: bjkwon90 (Bum Jun Kwon), andrewpachulski (Andrew Pachulski)}
+@item{pair14: aidmony, ERJIALI (Erjia Li)}
+@item{pair15: eldr4d (Nikolas Kofinas), ENOTTY (Joman Chu)}
+@item{pair16: reflect9 (Yi Qian), HosseinT (Hossein Torkashvand)}
+@item{pair17: ugur-koc (Ugur Koc)}
 ]
 
 For each pair, a private repository has been created for you.  Use
