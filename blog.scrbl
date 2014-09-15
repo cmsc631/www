@@ -4,6 +4,238 @@
 
 @title{Blog}
 
+@bold{Mon Sep 15 10:21:54 EDT 2014}
+
+Here is the code from Thursday.
+
+OCaml:
+
+@verbatim|{
+type bt = 
+  | Leaf
+  | Node of int * bt * bt
+
+let rec sum (bt : bt) : int =
+  match bt with
+    | Leaf -> 0
+    | Node (i, l, r) -> i + sum l + sum r
+
+
+sum Leaf;;
+sum (Node (4, Node (2, Leaf, Leaf), Node (7, Leaf, Leaf)));;
+
+(* Now abstracting over the type of elements *)
+
+type 'a bt =
+  | Leaf
+  | Node of 'a * 'a bt * 'a bt
+
+let rec sum (bt : int bt) : int =
+  match bt with
+    | Leaf -> 0
+    | Node (i, l, r) -> i + sum l + sum r
+
+
+sum Leaf;;
+sum (Node (4, Node (2, Leaf, Leaf), Node (7, Leaf, Leaf)));;
+
+let rec inorder (bt : 'a bt) : 'a list =
+  match bt with
+    | Leaf -> []
+    | Node (x, l, r) -> inorder l @ [x] @ inorder r
+
+inorder Leaf;;
+inorder (Node (4, Node (2, Leaf, Leaf), Node (7, Leaf, Leaf)));;
+
+(* Evaluator for A lang *)
+
+type expr = 
+  | Int of int
+  | Pred of expr
+  | Succ of expr
+  | Mult of expr * expr
+  | Plus of expr * expr
+
+let rec eval (e : expr) : int =
+  match e with
+      Int i -> i
+    | Pred e -> eval e - 1
+    | Succ e -> eval e + 1
+    | Plus (e1, e2) -> eval e1 + eval e2
+    | Mult (e1, e2) -> eval e1 * eval e2
+
+(* Works fine because eval relation but also a function. Doesn't work as well
+   when it is relation but not a function. *)
+
+type expr = 
+  | Int of int
+  | Pred of expr
+  | Succ of expr
+  | Mult of expr * expr
+  | Plus of expr * expr
+  | Amb of expr * expr (* Ambiguous choice *)
+
+let rec eval (e : expr) : int =
+  match e with
+    | Int i -> i
+    | Pred e -> eval e - 1
+    | Succ e -> eval e + 1
+    | Plus (e1, e2) -> eval e1 + eval e2
+    | Mult (e1, e2) -> eval e1 * eval e2
+    | Amb (e1, e2) -> eval e1 
+    | Amb (e1, e2) -> eval e2 (* unreachable code *) 
+
+(* We didn't see the rest in class, but here's how we could model 
+   an evaluation relation... *)
+
+(* Could model relation as a function returning a set. *)
+(* For simplicty, let's model a set as a list. *)
+
+(* We need a helper function to construct the 
+   Cartesian product of two lists *)
+
+let cartesian (l : 'a list) (l' : 'b list) : ('a * 'b) list =
+  List.concat (List.map (fun e -> List.map (fun e' -> (e,e')) l') l)
+
+let rec eval (e : expr) : int list =
+  match e with
+    | Int i -> [i]
+    | Pred e -> List.map (fun v -> v - 1) (eval e)
+    | Succ e -> List.map (fun v -> v + 1) (eval e)
+    | Plus (e1, e2) ->
+        List.map (fun (v1, v2) -> v1 + v2) (cartesian (eval e1) (eval e2))
+    | Mult (e1, e2) ->
+        List.map (fun (v1, v2) -> v1 * v2) (cartesian (eval e1) (eval e2))
+    | Amb (e1, e2) ->
+        eval e1 @ eval e2
+
+eval (Amb (Int 2, Int 3));;
+eval (Mult (Int 4, (Amb (Int 2, Int 3))));;
+}|
+
+Racket/Redex:
+
+@verbatim|{
+#lang racket
+;; bt =
+;;   | (leaf)
+;;   | (node int bt bt)
+
+(struct leaf ())
+(struct node (i l r))
+
+(define (sum bt)
+  (match bt
+    [(leaf) 0]
+    [(node i l r)
+     (sum i (sum l) (sum r))]))
+
+(define (inorder bt)
+  (match bt
+    [(leaf) empty]
+    [(node i l r)
+     (append (inorder l)
+             (list i)
+             (inorder r))]))
+
+
+(require redex)
+
+(define-language A
+  (e ::= 
+     integer 
+     (Plus e e)
+     (Mult e e)
+     (Succ e)
+     (Pred e)
+     (Amb e e))
+  (i ::= integer)
+  (E ::= hole
+     (Plus E e)
+     (Plus i E)
+     (Mult E e)
+     (Mult i E)
+     (Succ E)
+     (Pred E)))
+
+(define-judgment-form A
+  #:mode (⇓ I O)
+  #:contract (⇓ e i)
+  [--------
+   (⇓ i i)]
+  
+  [(⇓ e i)
+   --------------
+   (⇓ (Succ e) (unquote (+ (term i) 1)))]
+  
+  [(⇓ e i)
+   --------------
+   (⇓ (Pred e) (unquote (- (term i) 1)))]
+  
+  [(⇓ e_1 i_1) (⇓ e_2 i_2)
+   -----------------------
+   (⇓ (Plus e_1 e_2) 
+      (unquote (+ (term i_1) (term i_2))))]
+  
+  [(⇓ e_1 i_1) (⇓ e_2 i_2)
+   -----------------------
+   (⇓ (Mult e_1 e_2) 
+      (unquote (* (term i_1) (term i_2))))]
+  
+  [(⇓ e_1 i_1)
+   -----------------------
+   (⇓ (Amb e_1 e_2) i_1)]
+  
+  [(⇓ e_2 i_2)
+   -----------------------
+   (⇓ (Amb e_1 e_2) i_2)])
+
+(define a
+  (reduction-relation 
+   A #:domain e
+   (--> (Plus i_1 i_2) ,(+ (term i_1) (term i_2)))
+   (--> (Mult i_1 i_2) ,(* (term i_1) (term i_2)))
+   (--> (Pred i_1) ,(- (term i_1) 1))
+   (--> (Succ i_1) ,(+ (term i_1) 1))
+   (--> (Amb e_1 e_2) e_1)
+   (--> (Amb e_1 e_2) e_2)))
+
+(define -->_a
+  (compatible-closure a A e))
+
+(define -std->_a
+  (context-closure a A E))
+
+   
+;; Some examples:
+#|
+(judgment-holds 
+   (⇓ (Amb (Succ 5) (Pred 4)) 6))
+
+(judgment-holds 
+   (⇓ (Amb (Succ 5) (Pred 4)) i))
+
+(apply-reduction-relation -->_a
+                          (Mult (Succ 4) (Pred 4)))
+(apply-reduction-relation* -->_a
+                           (Mult (Succ 4) (Pred 4)))
+(traces -->_a
+        (Mult (Succ 4) (Pred 4)))           
+
+(traces -std->_a
+        (Mult (Succ 4) (Pred 4)))
+|#
+}|
+
+
+
+@bold{Thu Sep 11 09:25:26 EDT 2014}
+
+I've updated the partner assignments (by editing the blog post below).
+I've added real names for convenience.  Everyone's team should have
+writeable private repos.  Please veryify @bold{before} @secref{PS2}'s
+due date and let me know if there's a problem.
+
 @bold{Tue Sep  9 14:35:05 EDT 2014}
 
 @secref{PS2} will require you to do some programming in OCaml.
@@ -14,13 +246,6 @@ deck} on programming in OCaml.
 There's an Emacs mode I use called
 @link["http://tuareg.forge.ocamlcore.org/"]{Tuareg}.
 
-
-@bold{Thu Sep 11 09:25:26 EDT 2014}
-
-I've updated the partner assignments (by editing the blog post below).
-I've added real names for convenience.  Everyone's team should have
-writeable private repos.  Please veryify @bold{before} @secref{PS2}'s
-due date and let me know if there's a problem.
 
 @bold{Tue Sep  9 10:15:27 EDT 2014}
 
@@ -34,7 +259,7 @@ github:
 
 @itemlist[
 @item{pair10: labichn (Nicholas Labich)}
-@item{pair11: leofanxiong (Xiong Fan), decaturk (Kevin Decatur)}
+@item{pair11: leofanxiong (Xiong Fan), decaturk (Kevin DeCatur)}
 @item{pair12: jreeseue (Josh Reese), alexwzk (Zikai Wen)}
 @item{pair13: bjkwon90 (Bum Jun Kwon), andrewpachulski (Andrew Pachulski)}
 @item{pair14: aidmony, ERJIALI (Erjia Li)}
