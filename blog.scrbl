@@ -4,6 +4,15 @@
 
 @title{Blog}
 
+@bold{Tue Sep 16 15:17:12 EDT 2014}
+
+I've pushed the deadline for @secref{PS2} back to Tuesday, 9/23.  I've
+seen very few people (1 to be precise) push any work on their
+repository.  You will not be able to complete this assignment the day
+before its due and I will have no sympathy for PhD students who fail
+to start early.  There are still two people who have not accepted the
+github request to join the cmsc631 organization!
+
 @bold{Mon Sep 15 10:21:54 EDT 2014}
 
 Here is the code from Thursday.
@@ -262,9 +271,9 @@ github:
 @item{pair11: leofanxiong (Xiong Fan), decaturk (Kevin DeCatur)}
 @item{pair12: jreeseue (Josh Reese), alexwzk (Zikai Wen)}
 @item{pair13: bjkwon90 (Bum Jun Kwon), andrewpachulski (Andrew Pachulski)}
-@item{pair14: aidmony, ERJIALI (Erjia Li)}
+@item{pair14: aidmony (Yi Qian), ERJIALI (Erjia Li)}
 @item{pair15: eldr4d (Nikolas Kofinas), ENOTTY (Joman Chu)}
-@item{pair16: reflect9 (Yi Qian), HosseinT (Hossein Torkashvand)}
+@item{pair16: reflect9 (Tak Yeon Lee), HosseinT (Hossein Torkashvand)}
 @item{pair17: ugur-koc (Ugur Koc)}
 ]
 

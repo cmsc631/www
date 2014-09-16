@@ -20,8 +20,8 @@
         "9/9"
         "9/11"
         "9/16"
- 	(list "9/18" @secref{PS2})
-	"9/23"
+ 	"9/18"
+	(list "9/23" @secref{PS2})
 	"9/25"
 	"9/30"
 	(list "10/2" "PS3")
@@ -45,7 +45,7 @@
 	(list "12/4" "RP3")
 	"12/9"
 	"12/11"
-	(list "12/18 (?)" "RP4")))
+	(list "12/20" "RP4")))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
 
 @(define topics+readings
   (list (list @color["red"]{No class}
