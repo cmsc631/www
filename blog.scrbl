@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Tue Sep 16 17:36:06 EDT 2014}
+
+Here is the @link["code/arith-rel.ml"]{code} from today.
+
 @bold{Tue Sep 16 15:17:12 EDT 2014}
 
 I've pushed the deadline for @secref{PS2} back to Tuesday, 9/23.  I've
