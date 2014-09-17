@@ -4,6 +4,12 @@
 
 @title{Blog}
 
+@bold{Tue Sep 16 17:43:00 EDT 2014}
+
+Shortened office hours tomorrow: due to a department meeting at 2PM I
+will only be available from 1:30 to 2:00 tomorrow during office hours.
+However, you can always email me to schedule an appointment.
+
 @bold{Tue Sep 16 17:36:06 EDT 2014}
 
 Here is the @link["code/arith-rel.ml"]{code} from today.
@@ -272,13 +278,12 @@ github:
 
 @itemlist[
 @item{pair10: labichn (Nicholas Labich)}
-@item{pair11: leofanxiong (Xiong Fan), decaturk (Kevin DeCatur)}
+@item{pair11: leofanxiong (Xiong Fan), ugur-koc (Ugur Koc)}
 @item{pair12: jreeseue (Josh Reese), alexwzk (Zikai Wen)}
 @item{pair13: bjkwon90 (Bum Jun Kwon), andrewpachulski (Andrew Pachulski)}
 @item{pair14: aidmony (Yi Qian), ERJIALI (Erjia Li)}
 @item{pair15: eldr4d (Nikolas Kofinas), ENOTTY (Joman Chu)}
 @item{pair16: reflect9 (Tak Yeon Lee), HosseinT (Hossein Torkashvand)}
-@item{pair17: ugur-koc (Ugur Koc)}
 ]
 
 For each pair, a private repository has been created for you.  Use
