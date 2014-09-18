@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Thu Sep 18 18:59:50 EDT 2014}
+
+Today's @link["code/brith-compile.ml"]{code}.
+
 @bold{Tue Sep 16 17:43:00 EDT 2014}
 
 Shortened office hours tomorrow: due to a department meeting at 2PM I
