@@ -24,9 +24,9 @@
 	(list "9/23" @secref{PS2})
 	"9/25"
 	"9/30"
-	(list "10/2" "PS3")
-	(list "10/7" @secref{RP1})
-	"10/9"
+        "10/2"
+	(list "10/7" @secref{PS3})
+	(list "10/9" @secref{RP1})
 	"10/14"
 	(list "10/16" "PS4")
 	"10/21"

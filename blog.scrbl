@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Tue Sep 23 18:18:56 EDT 2014}
+
+@secref{PS3} is out.
+
 @bold{Tue Sep 23 17:14:04 EDT 2014}
 
 My stupid error today: I realized right after walking out of class
