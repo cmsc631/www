@@ -4,6 +4,51 @@
 
 @title{Blog}
 
+@bold{Tue Sep 23 17:14:04 EDT 2014}
+
+My stupid error today: I realized right after walking out of class
+what the problem was.  I wanted to make a reduction relation that
+reduced a natural number to all numbers less than or equal to it.
+
+We first wrote a relation @tt{<=} with mode @tt{(<= I O)}, but that
+mode says we're given a number and it produces all numbers for which
+it is less than or equal.  That's an infinite set.
+
+We actually fixed that by changing the mode to @tt{(<= O I)}, which
+given a number produces all numbers less than or equal to it.  That's
+a finite set.
+
+But we still had the reduction relation defined as
+@verbatim{
+(--> N_1 N_2 (judgment-holds (<= N_1 N_2)))
+}
+
+That's saying a number reduces to anything greater than it,
+which is not what we were after.
+
+The solution is:
+@verbatim{
+(--> N_1 N_2 (judgment-holds (<= N_2 N_1)))
+}
+
+which works just fine.
+
+sigh.
+
+@bold{Tue Sep 23 13:36:35 EDT 2014}
+
+Here are the partner assignments for problem set 3, which will be posted tonight.
+
+@itemlist[
+@item{pair10: labichn (Nicholas Labich)}
+@item{pair18: leofanxiong (Xiong Fan), aidmony (Yi Qian)}
+@item{pair19: jreeseue (Josh Reese), ugur-koc (Ugur Koc)}
+@item{pair20: andrewpachulski (Andrew Pachulski), alexwzk (Zikai Wen)}
+@item{pair21: eldr4d (Nikolas Kofinas), HosseinT (Hossein Torkashvand)}
+@item{pair22: reflect9 (Tak Yeon Lee), ENOTTY (Joman Chu)}
+]
+
+
 @bold{Thu Sep 18 18:59:50 EDT 2014}
 
 Today's @link["code/brith-compile.ml"]{code}.
