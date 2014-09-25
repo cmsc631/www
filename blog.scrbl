@@ -4,6 +4,11 @@
 
 @title{Blog}
 
+@bold{Thu Sep 25 17:07:13 EDT 2014}
+
+Type checking @link["code/brith-typecheck.ml"]{code} from today
+(includes an evaluator that handles all errors).
+
 @bold{Tue Sep 23 18:18:56 EDT 2014}
 
 @secref{PS3} is out.
