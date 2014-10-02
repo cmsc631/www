@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Thu Oct  2 17:00:33 EDT 2014}
+
+Today's @link["code/fexp.ml"]{code}.
+
 @bold{Thu Sep 25 17:07:13 EDT 2014}
 
 Type checking @link["code/brith-typecheck.ml"]{code} from today
