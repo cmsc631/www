@@ -68,7 +68,7 @@
 			    "wand-inference.pdf")})
 
 
-	(list "Symbolic execution"
+	(list "Interval abstraction; functions"
 	      @(paper "Symbolic Execution and Program Testing" "King" "king-symbolic-execution.pdf"))
 	(list "Project pitches (TBA)"
 	     @(paper "Definitional Interpreters for Higher-Order Programming Languages" "Reynolds" "reynolds-definitional-interpreters.pdf"))
