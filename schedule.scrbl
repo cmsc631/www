@@ -54,31 +54,24 @@
 	      @elem{@link["papers/redex-preface.pdf"]{Preface}, @link["papers/redex-I.1.pdf"]{I.1}, @link["papers/redex-I.2.pdf"]{I.2}})
 	(list "Welcome; Syntax & semantics"
 	      "II.11")
-	(list "Redex" "I.3")
-	(list "Types and abstract interpretation with types" "I.4, II.12")
-	(list "Abstract interpretation with intervals and type inference with constraints" "I.5")
-	(list "The λ-calculus" "I.10")
-	(list "The λv-calculus" @(paper "Syntactic Approach to Type Soundness"
+	(list "Modelling semantics in OCaml & Redex" "I.3")
+	(list "Reduction with evaluation contexts" "I.4, II.12")
+	(list "Compositional compilation" "I.5")
+	(list "Meaningful Errors" "I.10")
+	(list "Type checking; type-based abstract interpretation" @(paper "Syntactic Approach to Type Soundness"
 					    "Wright & Felleisen"
 					    "wright-felleisen-syn-type-soundness.pdf"))
-	(list "Project pitches (TBA)"
+	(list "Type inference; unification"
 	      @elem{
 		    @(paper "A Simple Algorithm and Proof for Type Inference"
 			    "Wand"
-			    "wand-inference.pdf");                           
-		    @(paper "Adapting Scrum to Managing a Research Group"
-			    "Hicks & Foster"
-			    "plum-score.pdf")})
+			    "wand-inference.pdf")})
 
 
-	(list "Type systems" 
-	      @(paper "Syntactic Approach to Type Soundness"
-		      "Wright & Felleisen"
-		      "wright-felleisen-syn-type-soundness.pdf"))
-	(list "Type inference"                         
-	      @(paper "A Simple Algorithm and Proof for Type Inference"
-		      "Wand"
-		      "wand-inference.pdf"))
+	(list "Symbolic execution"
+	      @(paper "Symbolic Execution and Program Testing" "King" "king-symbolic-execution.pdf"))
+	(list "Project pitches (TBA)"
+	     @(paper "Definitional Interpreters for Higher-Order Programming Languages" "Reynolds" "reynolds-definitional-interpreters.pdf"))
 	
 	(list "Flow analysis & constraints"
 	      @(paper "Introduction to Set Constraint-Based Program Analysis"
