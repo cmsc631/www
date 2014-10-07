@@ -70,7 +70,7 @@
 
 	(list "Interval abstraction; functions"
 	      @(paper "Symbolic Execution and Program Testing" "King" "king-symbolic-execution.pdf"))
-	(list "Project pitches (TBA)"
+	(list @elem{Project pitches: @link["http://www.cs.umd.edu/~hammer/"]{Hammer}, @link["http://www.cs.umd.edu/~piotrm/"]{Mardziel}, @link["http://www.cs.umd.edu/~micinski/"]{Micinski}}
 	     @(paper "Definitional Interpreters for Higher-Order Programming Languages" "Reynolds" "reynolds-definitional-interpreters.pdf"))
 	
 	(list "Flow analysis & constraints"
