@@ -5,6 +5,274 @@
 
 @table-of-contents[]
 
+@section[#:tag "smc"]{SMC embedding}
+
+In collaboration with @link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel}.
+
+Secure multi-party computation [SMC] is a technique in which several
+parties to jointly compute a function of their private inputs without
+revealing these inputs to each other. This makes possible various
+security-oriented applications without relying on a trusted third
+party. A oft-used example is two millionaires determining which of
+them is richer:
+
+@verbatim|{
+bool bob_is_richer(int bob_net_worth, int alice_net_worth) {
+  if (bob_net_worth > alice_net_worth) {
+    return true;
+  } else {
+    return false;
+  }
+}
+}|
+
+There are several implementations of SMC in varying levels of
+programming abstraction. At the lowest level, SMC are executed as
+circuits (composed of typical gates) in a clever cryptographic
+protocol that ensures that obliviousness of the inputs to the
+participants while still letting them compute the output. This,
+however, is a poor abstraction for writing programs in and languages
+exist that lets one write programs on a higher level which are then
+compiled to circuits for execution.
+
+An important feature of newer languages (like Wysteria [Rastogi14]) is
+that the same language describes secure code that will be compiled
+into circuits and code that is not secure that should handle
+computation done on individual parties'. This notion of ``mixed-mode''
+computation is important for efficiency reasons (as secure execution
+is much slower than normal execution) but also for usability of the
+language for real programs as real programs have components that
+interact with the user or their computer (via inputs from user,
+outputs to terminal, graphics, sound, etc.), things that cannot be
+part of a secure execution.
+
+These languages, however, are usually feature-poor and do not provide
+a convenient means of interacting with traditional non-secure programs
+written in standard languages.
+
+This project is to develop an embedding of secure computation in a
+standard language with the aim of providing standard syntax and
+convenient interoperability between non-secure and secure computation.
+Part of the project will be to research how best to implement such an
+embedding and finding the right tools for the job. Possibilities
+include a monadic embedding in haskell/ocaml, well-designed
+class-based interface in java, meta-programming, or others. Careful
+design should allow easy interaction with elements not usually
+available in other secure computation systems, like user interaction,
+graphics, etc.
+
+Reading:
+@itemlist[
+@item{Fairplay compiles to and executes as garbled circuits for 2 parties:
+    http://www.pinkas.net/PAPERS/MNPS.pdf}
+@item{Implementation of evaluating circuits with multiple (more than 2) parties:
+    http://eprint.iacr.org/2011/257.pdf}
+@item{[Rastogi14] Wysteria, a language for mixed-mode computation:
+    http://www.cs.umd.edu/~aseem/wysteria.pdf}
+]
+
+
+@section[#:tag "probabilistic"]{Probabilistic programming}
+
+In collaboration with @link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel}.
+
+Probabilistic programming [PP] is an higher-level view of programs
+with randomness that exposes their probabilistic behaviors. Various
+notions of how high of a level this view are possible though for
+simplicity in this summary, it lets us determine the probability of
+various events in program execution. For example, consider the
+following program:
+
+@verbatim|{
+bool is_rand_even() {
+  if (rand() % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+}|
+
+Running such program many times will show it returning true half of
+the time and false the other half. The higher level view of the
+program is to not see it as a program that samples true or false but
+rather a program that produces a probability distribution.
+
+@verbatim{
+       Pr[R = true] = Pr[R = false] = 0.5
+}
+
+Where R is the random variable representing the possible return values
+of is_rand_even(). Probabilistic programming can also let us analyze a
+function with uncertain input. For example:
+
+@verbatim|{
+bool is_even(int x) {
+  if (i %2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+}|
+
+Is_even is a simple function that determines whether the input is even
+or not. Now, let us say that we have a random integer as below:
+
+@verbatim{
+   int x = (rand() % 1000)
+}
+
+When we run is_even(x), we would see it producing true half the time
+and false the other half, as before. The probabilistic programming
+view on this is in the form of a distribution Pr[R = true] = Pr[R =
+false] = 0.5 . The benefit of probabilistic programming is that it is
+not always clear what the output distribution is, unlike in these
+simple examples. For example, what is the distribution of even/odd in:
+
+@verbatim{
+   int y = (rand() % 1000) + (rand() % 1000)
+}
+
+The most enticing use of probabilistic programming is inference, or
+backwards program execution. For example, given the above definitions
+of x and is_even, what is the probability of various values of x,
+GIVEN that you learn that is_even(x) = true ? What about in the second
+definition of x?
+
+Inference has great applications to machine learning and data mining.
+It is also applicable to information security as it captures the
+learning process an adversary undertakes if he is trying to learn a
+secret and learns outputs of some channel. A summary of various
+applications of probabilistic programming is contained in [Gordon14].
+
+Probabilistic programming is not a very tractable task in general.
+Consider the is_even above but where x is defined to be uniform in a
+range of 0 to MAX_INT instead of just 999. Try to imagine merely the
+complexity of representing a distribution over such large range of
+possibilities. Now imagine there are multiple correlated variables
+each having a value in a large range.
+
+In our own work we addressed the state-space issue using abstract
+interpretation. The distributions are not represented directly as maps
+from value of variables to a probability but rather sets of values are
+mapped to a range of probabilities (see [Mardziel11]). The two projects on
+probabilistic programming are both related to this work.
+
+@subsection{Project 1: Functional variant and application of QIF with dynamic
+   secrets}
+
+In more recent work on quantitative information flow [Mardziel14],
+there are applications for probabilistic programming that could
+greatly benefit from non-naive implementations of probabilistic
+programming, for example like the probabilistic abstract
+interpretation of [Mardziel11]. The language defined in [Mardziel11],
+however, is imperative and minimal, lacking even simple data type
+constructors like tuples. It also only handles integer values for all
+variables.
+
+The project would be composed of two goals. First is to take the ideas
+of this paper and define a more features functional language with
+support for data type constructors, function definitions, and other
+basic types including booleans, strings, etc.
+
+The second goal (if possible and time-permitted) of the project is to
+then apply the new richer language for the quantitative information
+flow models described in [Mardziel14].
+
+Reading:
+@itemlist[
+@item{[Gordon14] Survey of probabilistic programming:
+   http://research.microsoft.com/pubs/208585/fose-icse2014.pdf}
+@item{[Mardziel11] Probabilistic abstract interpretation for security:
+   http://www.cs.umd.edu/~mwh/papers/beliefpol-extended.pdf}
+@item{[Mardziel14] Quantitative information flow for dynamic secrets (using
+   probabilistic computation): 
+   http://www.cs.umd.edu/~mwh/papers/qif-dynamic-secrets.pdf}
+]
+
+@subsection{Project 2: SMT abstraction}
+
+In [Mardziel14] we defined a probabilistic abstraction for representing
+probability distributions ``abstractly''. Specifically the
+representation defined probability distributions in terms of convex
+regions of states (where a state is an assignment of variable to
+value). This abstraction is specially applicable to situations where
+random values are defined to be uniform in some convex range but does
+poorly in situations other than this. For example, given the definition of x:
+from above:
+
+@verbatim{
+     int x = (rand() % 1000)
+}
+
+The distribution over the values of x can be represented as the convex
+region of integer values 0 <= x <= 999 and the uniform probability p =
+0.001 that is the probability of each value in this range. On the
+other hand, the inferred distribution of x after learning that
+is_even(x) = true cannot be succinctly represented using one convex
+region as even integers do not define a convex range. 
+
+Satisfiability-Modulo-Theories [SMT] is another popular tool for
+representing the possible states a program can achieve. There, logical
+formulas aided with predicates of various forms, are used instead of
+specifically convex regions as in [Mardziel11]. Convex regions are
+used in [Mardziel11] due to the ability to count the members of a
+convex region. Recently there has been work for counting solutions to
+SMT formulas as well which suggests the possibility of enriching the
+abstraction for representing probability distributions. The project
+would be to develop (and potentially implement) a probabilistic
+interpreter using SMT as an abstraction.
+
+Reading:
+@itemlist[
+@item{[Gordon14] Survey of probabilistic programming:
+   http://research.microsoft.com/pubs/208585/fose-icse2014.pdf}
+@item{[Mardziel11] Probabilistic abstract interpretation for security:
+   http://www.cs.umd.edu/~mwh/papers/beliefpol-extended.pdf}
+@item{Paper making use of SMT counting:
+   http://www.eecs.qmul.ac.uk/~qsp30/papers/asiaccs14.pdf}
+]
+
+@section[#:tag "facet"]{Symbolic faceted execution}
+
+In collaboration with @link["http://www.cs.umd.edu/~micinski/"]{Kris Micinski}.
+
+Modern applications (such as those run through JavaScript or Android
+applications) frequently compute with some amount of private
+information: lists of contacts, secret keys, personally identifying
+information.  Although we may wish to run the program, it is often
+unclear whether the application reveals information in ways which we
+find intrusive (such as revealing our phone number, or whether a
+certain person is in our list of contacts).  Information flow security
+studies how outputs of programs leak information about their inputs.
+
+One technique for implementing information flow security is faceted
+execution[1]: a dynamic technique that tests whether publicly
+observable output (such as that sent over an internet socket) depends
+on a private input.  If it does, the observer may infer some
+information about the private input, allowing them to learn secret
+information.
+
+Currently, faceted execution is implemented by propagating "facets"
+throughout the program: variables that hold the result of the
+computation from a public and private view.  When information is
+released to a public observer, only the public view is released:
+showing the observer a view of the computation as if it had been
+computed with bottom ("null") inputs.
+
+In current implementation strategies, values potentially tainted by
+private inputs are lifted to "faceted" values: potentially incurring
+overhead.  This project looks at reducing this overhead: if you can,
+for some program point, show that the public and private inputs are
+the same, you can throw away the facet at some program point.  This
+project explores using program analysis (probably in the form of
+symbolic execution) to show where facets can be optimized to be
+unlifted values.
+
+[1] http://users.soe.ucsc.edu/~cormac/papers/popl12b.pdf
+
+
 @section[#:tag "editor"]{Static Analysis for Interactive Program Editing}
 
 In collaboration with @link["http://www.cs.umd.edu/~hammer/"]{Matthew Hammer}.
@@ -39,9 +307,10 @@ Related papers:
   @link["http://www.cs.umd.edu/~hammer/pldi2014/2014-adapton-tr.pdf"]{Adapton: Composable, Demand-driven Incremental Computation}
   (final version will appear at PLDI 2014!) 
 
+@;{
 @section{Embedded Secure Multi-party Computation}
 
-In collaboration with @link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel}.
+In collaboration with @link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel.}
 
 Secure multi-party computation is a technique in which several parties
 to jointly compute a function of their private inputs without
@@ -64,6 +333,7 @@ well-designed class-based interface in java, meta-programming, or
 others. Careful design should allow easy interaction with elements not
 usually available in other secure computation systems, like user
 interaction, graphics, etc.
+}
 
 @section[#:tag "wysteria"]{Enhancing Wysteria}
 

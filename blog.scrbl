@@ -4,6 +4,11 @@
 
 @title{Blog}
 
+@bold{Tue Oct  7 15:52:59 EDT 2014}
+
+The @secref{Potential_projects} descriptions have been revised to include the project
+proposals we heard today.
+
 @bold{Thu Oct  2 17:00:33 EDT 2014}
 
 Today's @link["code/fexp.ml"]{code}.
