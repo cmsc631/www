@@ -42,3 +42,5 @@ think of this memo as a proposal.
 
 Submit your proposal as a PDF to your team's assigned github
 repository.
+
+(You must email me your selected partnership in order to get a repository.)

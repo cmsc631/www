@@ -4,6 +4,24 @@
 
 @title{Blog}
 
+@bold{Tue Oct  7 19:53:55 EDT 2014}
+
+I've posted the descriptions of the rest of the research project
+deliverables: @secref{RP2}, @secref{RP3}, and @secref{RP4}, which are
+also on the @secref{Schedule}.
+
+@bold{Tue Oct  7 18:36:01 EDT 2014}
+
+@link["http://www.cs.umd.edu/~hammer/"]{Matthew Hammer}'s
+@link["slides/adapton-dvh-631-2014.10.07.pdf"]{slides}.
+
+@link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel}'s
+@link["slides/piotrm_631_projects.pdf"]{slides}.
+
+@link["http://www.cs.umd.edu/~micinski/"]{Kris Micinski}'s
+@link["slides/symbolic-faceted-execution.pdf"]{slides}.
+
+
 @bold{Tue Oct  7 15:52:59 EDT 2014}
 
 The @secref{Potential_projects} descriptions have been revised to include the project

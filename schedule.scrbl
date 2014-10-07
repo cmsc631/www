@@ -28,12 +28,12 @@
 	(list "10/7" @secref{PS3})
 	"10/9"
 	(list "10/14" @secref{RP1})
-	(list "10/16" "PS4")
+	"10/16"
 	"10/21"
-	"10/23"
+	(list "10/23"  @secref{RP2})
 	"10/28"
 	(list "10/30" "PS5")
-	(list "11/4" "RP2")
+	"11/4"
 	"11/6"
 	"11/11"
 	(list "11/13" "PS6")
@@ -42,10 +42,10 @@
 	"11/25"
 	(list "11/27" "PS7")
 	"12/2"
-	(list "12/4" "RP3")
+	(list "12/4" @secref{RP3})
 	"12/9"
 	"12/11"
-	(list "12/20" "RP4")))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
+	(list "12/20" @secref{RP4})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
 
 @(define topics+readings
   (list (list @color["red"]{No class}

@@ -3,29 +3,30 @@
 
 @title{RP2}
 
-@bold{Due:} Midnight, Mar 11
+@bold{Due:} Midnight, October 23
 
-@bold{Purpose:} The goal of this research task is to write a research
-proposal.
+@bold{Purpose:} The goal of this research task is to flush out the
+details of your research proposal and to design a strategy for
+carrying out your research.
 
-@section{Proposal}
+@section{Full Proposal}
 
-Choose a topic that you and your partner consider interesting in the
-context of this course.
+Revise your proposal based on any feedback you received.
 
-You should have a shallow understanding of the topic and a desire to
-understand certain aspects in more depth.  The best way to express
-this desire is to articulate your understanding and to phrase your
-remaining questions in this context. These questions tend to tell you
-which ``tools'' (mathematical techniques, implementation,
-measurements, etc) you will need to use to find answers.
+Flush out the details of your proposal including citations and
+discussion of any relevant related work.  There is no longer a page
+limit, so include as much detail as you see fit.
 
-Write up a one-page memo in journal-paper style that (0) motivates why
-the topic is interesting, (1) summarizes your current understanding of
-the topic, (2) states which aspects of the topic you would like to
-understand in depth, and (3) explains which tools you wish to use to
-explore the topic to gain the desired insight.  Researchers tend to
-think of this memo as a proposal.
+Design a strategy for carrying out the research.  This should include
+a list of milestone and a schedule.  Discuss your plan for doing the
+work.  Describe how you will validate the proposed research.  This can
+include examples, prototypes, benchmarks, proofs, etc.
+
+If you have a preference for presenting your results early, please
+indicate this.
+
+You have until Tuesday at midnight to submit, but submitting earlier
+is better.  I will provide feedback as soon as it is submitted.
 
 Submit your proposal as a PDF to your team's assigned github
 repository.
