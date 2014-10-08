@@ -4,6 +4,12 @@
 
 @title{Blog}
 
+@bold{Wed Oct  8 10:27:07 EDT 201}
+
+Remote office hours today: I need to work from home today so I will
+hold my office hours remotely on Skype and Google Hangouts; my
+username on both is david.a.vanhorn.
+
 @bold{Tue Oct  7 19:53:55 EDT 2014}
 
 I've posted the descriptions of the rest of the research project
