@@ -5,6 +5,91 @@
 
 @table-of-contents[]
 
+@section[#:tag "test"]{Test equivalence}
+
+In collaboration with @link["http://www.cs.umd.edu/~awruef/"]{Andrew
+Ruef} and @link["http://www.cs.umd.edu/~mwh/"]{Michael Hicks}.
+
+@bold{Problem}
+
+Can we automatically determine whether two test cases T1 and T2 that
+test a program P are the same, i.e., they identify the same bug in that
+program?
+
+By definition, T1 and T2 identify the same bug if a fix of P causes both
+T1 and T2 to pass, when both were failing before. As such, being "the
+same" is not an absolute property, for all programs, but is a property
+relative to a particular program.
+
+A reasonable alternative problem to explore is to figure out if a fix to
+P fixes more than one bug, and thus incorrectly "unifies" more than one
+test case.
+
+@bold{Features}
+
+Ideally, this determination would be:
+
+@itemlist[
+@item{Language-independent (or mostly so)}
+@item{Quantifiably reliable}
+@item{Efficient}
+]
+
+But it's OK to only get some of these things, as long as there
+is progress.
+
+As additional information a solution could use, we can provide a variety
+of valid test cases. And we could provide a variety of implementations.
+
+@bold{Ideas}
+
+When is a test case ``the same'' as another test case?
+
+The issues surrounding ``same'' test cases have been studied in
+numerous different contexts.  One such context is that of regression
+testing, in which it is important to identify ``same'' or redundant
+test cases for the purpose of reduction/minimization, selection, and
+prioritization.
+
+In our context, two test cases are the same if they exploit the same
+flaw, i.e., if the same conceptual fix to the program would cause them
+to switch from failing to passing.
+
+We can also attempt to discover similar behavior by examining
+artifacts of execution. Previous work developed a call-stack coverage
+criterion, with which two test cases can be considered equivalent if
+they generate the same (or a highly similar) set of call stacks. Call
+stack coverage has the benefits of accounting for libraries and
+multi-language implementations, and call stacks may be collected for
+any executing program with very little overhead.
+
+One metric that we can use is "maximal superstack comparison.” A
+maximal superstack is a stack smax such that no other stack @tt{s_i}
+has @tt{s_max} as a prefix (though the execution will likely exhibit
+stacks that are prefixes of @tt{s_max}). Suppose, for a given test T,
+we have a vector V where each element of the vector is the set of
+superstacks exhibited by a particular thread while the program is
+executing T. A signature sigT for T is the set of unique superstacks
+si that appear in V. Now we can compare the signatures sigT1 and
+sigT2 and if they are the same we have strong reason to believe the
+two test cases are similar. Our prior research showed that this
+technique was very effective at reducing the size of (automatically
+generated) test suites without adversely affecting fault coverage
+criterion. For the contest, we will experiment with different
+representations of the stack (basically, the level of detail) and
+different instrumentation techniques (e.g., valgrind
+vs. profiling).
+
+This projec will involve experimenting with all of these techniques
+and assess how often they work compared to the “right answer” as
+determined by bugfixes and manual inspection. You should develop a
+reasonable best-effort set of tools that can speed up a human
+analyst's task; e.g., if the tools suggest test cases are/are not the
+same, that is an excellent starting point and source of evidence for
+adjudicating claims.
+
+
+
 @section[#:tag "smc"]{SMC embedding}
 
 In collaboration with @link["http://www.cs.umd.edu/~piotrm/"]{Piotr Mardziel}.
