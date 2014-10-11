@@ -4,6 +4,13 @@
 
 @title{Blog}
 
+@bold{Sat Oct 11 10:53:24 EDT 2014}
+
+@link["code/FexpDefun.ml"]{Here} is the interpreter that was
+defunctionalized to obtain a closure datatype and
+@link["code/FexpCPS.ml"]{here} is the interpreter that makes context
+explicit via CPS.
+
 @bold{Wed Oct  8 15:26:25 EDT 2014}
 
 I've added another @secref{Potential_projects} description on test
