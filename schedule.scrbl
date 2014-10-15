@@ -7,7 +7,7 @@
   (element (style #f (list (color-property c))) cont))
 
 @(define (paper t a l)
-  (elem (link (format "http://www.cs.umd.edu/class/spring2014/cmsc631/papers/~a" l) t)
+  (elem (link (format "http://www.cs.umd.edu/class/fall2014/cmsc631/papers/~a" l) t)
         ", "
         a))
           
