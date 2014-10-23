@@ -4,6 +4,11 @@
 
 @title{Blog}
 
+@bold{Thu Oct 23 12:50:49 EDT 2014}
+
+Lecture is cancelled today; please use this time to make progress on
+your projects.
+
 @bold{Tue Oct 14 17:04:52 EDT 2014}
 
 Code from @link["code/FexpCPS2.ml"]{today}.
