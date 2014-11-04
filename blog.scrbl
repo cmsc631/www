@@ -44,7 +44,7 @@ username on both is david.a.vanhorn.
 
 I've posted the descriptions of the rest of the research project
 deliverables: @secref{RP2}, @secref{RP3}, and @secref{RP4}, which are
-also on the @secref{Schedule}.
+also on the @secref{Syllabus}.
 
 @bold{Tue Oct  7 18:36:01 EDT 2014}
 
@@ -1749,7 +1749,7 @@ Thanks!
 
 @bold{Tue Feb  4 12:16:08 EST 2014}
 
-@secref{PS2} is up.  Several papers on the @secref{Schedule}, but the
+@secref{PS2} is up.  Several papers on the @secref{Syllabus}, but the
 precise list and order is still subject to change.
 
 @bold{Fri Jan 31 18:41:56 EST 2014}
