@@ -28,7 +28,7 @@ so don't worry if you're not a wizard (I'm certainly not).
 Order the
 @link["http://mitpress.mit.edu/books/semantics-engineering-plt-redex"]{book}
 if you haven't already.  The first reading assignment is available in
-PDF (see the @secref{Schedule}), but you will need the book for later
+PDF (see the @secref{Syllabus}), but you will need the book for later
 reading assignments.
 
 @section{Problem 3}

@@ -1,7 +1,7 @@
 #lang scribble/manual
 @(require scribble/core racket/list)
 
-@title{Schedule}
+@title{Syllabus}
 
 @(define (color c cont)
   (element (style #f (list (color-property c))) cont))
