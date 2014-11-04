@@ -4,6 +4,14 @@
 
 @title{Blog}
 
+@bold{Tue Nov  4 15:01:36 EST 2014}
+
+Code from last Tuesday is @link["code/FexpState.ml"]{here}, which
+introduces imperative features to our abstract machine.  Code from
+last Thursday is @link["code/FexpAbstr.ml"]{here}, which pares down
+the language to the core of functions; the exercises on programming
+within this core are @link["code/church.rkt"]{here}.
+
 @bold{Thu Oct 23 12:50:49 EDT 2014}
 
 Lecture is cancelled today; please use this time to make progress on
