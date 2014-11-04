@@ -32,20 +32,20 @@
 	"10/21"
 	(list "10/23"  @secref{RP2})
 	"10/28"
-	(list "10/30" "PS5")
+	"10/30"
 	"11/4"
 	"11/6"
 	"11/11"
-	(list "11/13" "PS6")
-	"11/18"
+	"11/13"
+	(list "11/18" "PS5")
 	"11/20"
 	"11/25"
-	(list "11/27" "PS7")
+	"11/27"
 	"12/2"
 	(list "12/4" @secref{RP3})
 	"12/9"
 	"12/11"
-	(list "12/20" @secref{RP4})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
+	(list "12/20" @elem{@secref{RP4}, Exam})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
 
 @(define topics+readings
   (list (list @color["red"]{No class}
@@ -73,11 +73,11 @@
 	(list @elem{Project pitches: @link["http://www.cs.umd.edu/~hammer/"]{Hammer}, @link["http://www.cs.umd.edu/~piotrm/"]{Mardziel}, @link["http://www.cs.umd.edu/~micinski/"]{Micinski}}
 	     @(paper "Definitional Interpreters for Higher-Order Programming Languages" "Reynolds" "reynolds-definitional-interpreters.pdf"))
 	
-	(list "Flow analysis & constraints"
+	(list "Defunctionalization & CPS" #;"Flow analysis & constraints"
 	      @(paper "Introduction to Set Constraint-Based Program Analysis"
 				  "Aiken"
 				  "aiken-constraints.pdf"))
-	(list "Symbolic execution"
+	(list "Abstract machines" #;"Symbolic execution"
 	      @elem{
 		    @(paper "All You Ever Wanted to Know About
                                    Dynamic Taint Analysis and Forward Symbolic Execution
@@ -88,22 +88,22 @@
 			    "Ma, Khoo, Foster, & Hicks"
 			    "ma-directed-symbolic-exec.pdf")})
 
-	(list "Abstract interpretation (I)"
+	(list "Flow analysis & constraints" #;"Abstract interpretation (I)"
 	      @(paper "Abstract Interpretation: a Semantics-Based Tool for Program Analysis"
 		      "Jones & Nielson"
 		      "jones-ai-tutorial.pdf"))
 	
-	(list "Abstract interpretation (II)"
+	(list "Dependent types" #;"Abstract interpretation (II)"
 	      @(paper "Systematic Design of Program Analysis Frameworks"
 		      "Cousot & Cousot"
 		      "cousot-systematic-ai.pdf"))	
 
-	(list "State & control" 
+	(list "Project collaboration" #;"State & control" 
 	      @(paper	"A Formulae-as-Types Notion of Control"
 			"Griffin"
 			"griffin-callcc.pdf"))
 
-	(list "Contracts" 
+	(list "Modelling imperative state" 
 	      @elem{
 		    @(paper "Contracts for Higher-Order Functions"
 			    "Findler & Felleisen"
@@ -112,12 +112,13 @@
 			    "Dimoulas & Felleisen"
 			    "dimoulas-contract-sat.pdf")})
 
-	(list "Polymporphism" "")
-	(list "Constraints for contracts" "")
-	(list "Abstracting abstract machines" 
+	(list "Abstracting abstract machines (I); Church encodings" 
 	      @(paper "Abstracting Abstract Machines"
 		      "Van Horn & Might"
 		      "vanhorn-aam.pdf"))
+	(list "Abstracting abstract machines (II)" "")
+
+	(list "Symbolic Execution" "")
 
 	(list "Symbolic execution for contracts"
 	      @(paper "Higher-Order Symbolic Execution via Contracts"
