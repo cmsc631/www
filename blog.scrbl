@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Tue Nov  4 17:17:04 EST 2014}
+
+Code from @link["code/FexpAAM.rkt"]{today}.
+
 @bold{Tue Nov  4 15:01:36 EST 2014}
 
 Code from last Tuesday is @link["code/FexpState.ml"]{here}, which
