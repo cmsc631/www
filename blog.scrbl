@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Thu Nov  6 12:27:40 EST 2014}
+
+@secref{PS4} has been posted, due Nov 18.
+
 @bold{Tue Nov  4 17:17:04 EST 2014}
 
 Code from @link["code/FexpAAM.rkt"]{today}.

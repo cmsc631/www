@@ -5,21 +5,20 @@
 
 @(define ps "ps4")
 
-@bold{Due:} Midnight, May 21
+@bold{Due:} Midnight, November 18
 
-@bold{Purpose:} The goal of this take home exam is to demonstrate you
+@bold{Purpose:} The goal of this problem set is to demonstrate you
 can design and implement abstract machines and their finite
 approximations.
 
-You should work with your research project partner on this assignment
-and submit to your research repo.
+You should work with your most recent partner on this assignment
+and submit to your pair's repo.
 
 @section[#:tag-prefix ps]{Problem 1}
 
-Extend the abstract machine from the April 8 lecture (available on the
-@secref{Blog}, posted April 9) to handle all of the features of the B
-language in addition to functions (i.e. add numbers, booleans,
-conditionals, and the usual operations).
+Extend the abstract machine from the November 4 lecture (available on
+the @secref{Blog}) to handle all of the features of the F language
+(i.e. add numbers, booleans, conditionals, and the usual operations).
 
 @section[#:tag-prefix ps]{Problem 2}
 
