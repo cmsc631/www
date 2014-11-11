@@ -40,7 +40,7 @@
 	(list "11/18" @secref{PS4})
 	"11/20"
 	"11/25"
-	"11/27"
+	(list @color["red"]{11/27} "")
 	"12/2"
 	(list "12/4" @secref{RP3})
 	"12/9"
@@ -118,13 +118,6 @@
 		      "vanhorn-aam.pdf"))
 	(list "Abstracting abstract machines (II)" "")
 
-	(list "Symbolic Execution" "")
-
-	(list "Symbolic execution for contracts"
-	      @(paper "Higher-Order Symbolic Execution via Contracts"
-		      "Tobin-Hochstadt & Van Horn"
-		      "tobin-hochstadt-ho-symbolic-execution.pdf"))
-	
 	(list "Computational complexity"
 	      @elem{
 		    @(paper "Linear lambda calculus and PTIME-completeness"
@@ -133,10 +126,18 @@
 		    @(paper "Deciding kCFA is complete for EXPTIME"
 			    "Van Horn & Mairson"
 			    "vanhorn-kcfa-exptime.pdf")})
+
+	(list "Symbolic Execution" "")
+
+	(list "Symbolic execution for contracts"
+	      @(paper "Higher-Order Symbolic Execution via Contracts"
+		      "Tobin-Hochstadt & Van Horn"
+		      "tobin-hochstadt-ho-symbolic-execution.pdf"))
+	
 	(list "Type checking & inference via reduction" "III.23")
 	(list "Dependent types" "")
 	(list "System F" "")
-	(list "Slack" "")
+	(list @color["red"]{No class: Thanksgiving} "")
 	(list "Slack" "")
 	(list @color["blue"]{Presentations} "")
 	(list @color["blue"]{Presentations} "")
