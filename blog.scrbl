@@ -4,6 +4,12 @@
 
 @title{Blog}
 
+@bold{Wed Nov 12 11:41:49 EST 2014}
+
+Remote office hours today: I will be holding my office hours remotely
+today.  If you'd like to meet, my username on Skype and Google
+Hangouts is david.a.vanhorn.
+
 @bold{Thu Nov  6 12:27:40 EST 2014}
 
 @secref{PS4} has been posted, due Nov 18.
