@@ -139,9 +139,9 @@
 	(list "System F" "")
 	(list @color["red"]{No class: Thanksgiving} "")
 	(list "Slack" "")
-	(list @color["blue"]{Presentations} "")
-	(list @color["blue"]{Presentations} "")
-	(list @color["blue"]{Presentations} "")
+	(list "Slack" "")
+	(list @color["blue"]{Presentations: Project 15, 14} "")
+	(list @color["blue"]{Presentations: Project 18, 13, 16} "")
 	(list @color["green"]{Final exam} "")))
 	
 

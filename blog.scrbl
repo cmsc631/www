@@ -4,6 +4,13 @@
 
 @title{Blog}
 
+@bold{Tue Dec  2 11:36:52 EST 2014}
+
+The project presentation schedule has been set.  On 12/9, Ugur Koc and
+Yi Qian will present and Josh Reese will present.  On 12/11, Nicholas
+Kofinas will present, Nick Labich will present, and Xiong Fan, Zikai
+Wen, and Andrew Pachulski will present.  (See @secref{Syllabus}.)
+
 @bold{Wed Nov 12 11:41:49 EST 2014}
 
 Remote office hours today: I will be holding my office hours remotely
