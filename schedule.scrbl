@@ -45,7 +45,7 @@
 	(list "12/4" @secref{RP3})
 	"12/9"
 	"12/11"
-	(list "12/20" @elem{@secref{RP4}, Exam})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
+	(list "12/20" @elem{@secref{RP4}, @secref{PS5}})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
 
 @(define topics+readings
   (list (list @color["red"]{No class}
@@ -142,7 +142,7 @@
 	(list "Slack" "")
 	(list @color["blue"]{Presentations: Project 15, 14} "")
 	(list @color["blue"]{Presentations: Project 18, 13, 16} "")
-	(list @color["green"]{Final exam} "")))
+	(list @color["green"]{Final} "")))
 	
 
 @(define (zip-syllabus d+ds t+rs)

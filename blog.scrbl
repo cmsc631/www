@@ -4,6 +4,11 @@
 
 @title{Blog}
 
+@bold{Tue Dec  9 15:11:48 EST 2014}
+
+The final exam, @secref{PS5}, has been posted.  It consists of a
+single problem and is due by 12/20.
+
 @bold{Tue Dec  2 11:36:52 EST 2014}
 
 The project presentation schedule has been set.  On 12/9, Ugur Koc and
