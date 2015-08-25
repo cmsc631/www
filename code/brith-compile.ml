@@ -95,3 +95,61 @@ let rec compile (e : _B_) : (env -> value) =
 	       if b=true then c2 env else c3 env)
     | Var x ->
 	(fun env -> lookup env x)
+
+
+(* Defunctionalizing the compiler gets you back to the evaluator... *)
+
+type bytecode =
+  | BCInt of int
+  | BCBool of bool
+  | BCPred of bytecode
+  | BCMult of bytecode * bytecode
+
+let rec byte_run : (bc : bytecode) (r : env) -> value
+  | BCInt i -> VInt i
+  | BCBool b -> VBool b
+  | BCPred c ->
+      let VInt i = byte_run c env in
+	VInt (i-1)
+  | BCSucc c -> 
+      let VInt i = byte_run c env in
+	VInt (i+1)
+  | BCMult (c1, c2) ->
+      let VInt i = byte_run c1 env in
+      let VInt j = byte_run c2 env in
+	VInt (i*j)
+  | BCIf (c1, c2, c3) ->
+      let VBool b = byte_run c1 env in
+	if b=true then byte_run env else byte_run env
+
+let rec byte_compile (e : _B_) : bytecode =
+  match e with
+    | Int i -> BCInt i
+    | Bool b -> BCBool b
+    | Pred e -> BCPred (byte_compile e)
+    | Succ e -> BCSucc (byte_compile e)
+    | Mult (e1, e2) -> BCMult (byte_compile e1, byte_compile e2)
+    | Plus (e1, e2) ->
+	let c1 = compile e1 in
+	let c2 = compile e2 in
+	  (fun env ->
+	     let VInt i = (c1 env) in
+	     let VInt j = (c2 env) in
+	       VInt (i+j))
+    | Div (e1, e2) ->
+	let c1 = compile e1 in
+	let c2 = compile e2 in
+	  (fun env ->
+	     let VInt i = (c1 env) in
+	     let VInt j = (c2 env) in
+	       VInt (i/j))
+    | If (e1, e2, e3) ->
+	let c1 = compile e1 in
+	let c2 = compile e2 in
+	let c3 = compile e3 in
+	  (fun env ->
+	     let VBool b = c1 env in
+	       if b=true then c2 env else c3 env)
+    | Var x ->
+	(fun env -> lookup env x)
+
