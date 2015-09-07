@@ -23,7 +23,7 @@ let rec eval (e : arith) : int list =
   | Mult (e1, e2) ->
       List.map (fun (v1,v2) -> v1*v2)
 	(cartesian (eval e1) (eval e2))
-(*   | Amb (e1, e2) -> eval e1 @ eval e2 *)
+  | Amb (e1, e2) -> eval e1 @ eval e2
 
 
 let a (e : arith) : arith list =
