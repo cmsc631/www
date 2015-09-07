@@ -5,6 +5,42 @@
 
 @table-of-contents[]
 
+@section[#:tag "survey"]{Survey and model project}
+
+One possible project template to follow is to pick a research paper,
+model it in Redex, OCaml, Agda, etc., and survey the related
+literature.  Such a project should present: the basic idea behind the
+paper, the interesting aspects of the model, and a broad overview of
+the related work.
+
+Potential papers to study in such a project (pick one):
+@itemlist[
+
+@item{Logical types for untyped languages,
+Sam Tobin-Hochstadt and Matthias Felleisen, ICFP'10}
+
+@item{1ML – Core and Modules United (F-ing First-Class Modules),
+Andreas Rossberg, ICFP'15}
+
+@item{Unifying Refinement and Hoare-Style Reasoning in a Logic for
+Higher-Order Concurrency, Aaron Turon, Derek Dreyer, Lars Birkedal,
+ICFP'13}
+
+@item{Structuring the Verification of Heap-Manipulating Programs,
+Aleksandar Nanevski, Viktor Vefeiadis and Josh Berfine, POPL'10}
+
+@item{Multiple facets for dynamic information flow,
+Thomas H. Austin and Cormac Flanagan, POPL'12}
+
+@item{Rethinking supercompilation, Neil Mitchell, ICFP'10}
+
+@item{A Galois connection calculus for abstract interpretation,
+Patrick Cousot and Radhia Cousot, POPL'14}
+
+@item{... or something of your own choosing (subject to approval).}
+
+]
+
 @section[#:tag "test"]{Test equivalence}
 
 In collaboration with @link["http://www.cs.umd.edu/~awruef/"]{Andrew
