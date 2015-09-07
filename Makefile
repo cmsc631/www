@@ -6,4 +6,4 @@ push:
 	cp -r code/ cmsc631/code/
 	cp -r exam/ cmsc631/exam/
 	cp -r slides/ cmsc631/slides/
-	rsync -avz cmsc631 umd:/fs/www/class/fall2014
+	rsync -avz cmsc631 umd:/fs/www/class/fall2015

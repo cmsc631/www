@@ -15,37 +15,37 @@
 
 
 @(define dates+deliverables
-  (list @color["red"]{9/2}
-        (list @color["red"]{9/4} @secref{PS1})
-        "9/9"
-        "9/11"
-        "9/16"
- 	"9/18"
-	(list "9/23" @secref{PS2})
-	"9/25"
-	"9/30"
-        "10/2"
-	(list "10/7" @secref{PS3})
-	"10/9"
-	(list "10/14" @secref{RP1})
-	"10/16"
-	"10/21"
-	(list "10/23"  @secref{RP2})
-	"10/28"
-	"10/30"
-	"11/4"
-	"11/6"
-	"11/11"
-	"11/13"
-	(list "11/18" @secref{PS4})
-	"11/20"
-	"11/25"
-	(list @color["red"]{11/27} "")
-	"12/2"
-	(list "12/4" @secref{RP3})
-	"12/9"
-	"12/11"
-	(list "12/20" @elem{@secref{RP4}, @secref{PS5}})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
+  (list @color["red"]{9/1}
+        (list @color["red"]{9/3} @secref{PS1})
+        "9/8"
+        "9/10"
+        "9/15"
+ 	"9/17"
+	(list "9/22" @secref{PS2})
+	"9/24"
+	"9/29"
+        "10/1"
+	(list "10/6" @secref{PS3})
+	"10/8"
+	(list "10/13" @secref{RP1})
+	"10/15"
+	"10/20"
+	(list "10/22"  @secref{RP2})
+	"10/27"
+	"10/29"
+	"11/3"
+	"11/5"
+	"11/10"
+	"11/12"
+	(list "11/17" @secref{PS4})
+	"11/19"
+	"11/24"
+	(list @color["red"]{11/26} "")
+	"12/1"
+	(list "12/3" @secref{RP3})
+	"12/8"
+	"12/10"
+	(list "12/??" @elem{@secref{RP4}, @secref{PS5}})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
 
 @(define topics+readings
   (list (list @color["red"]{No class}

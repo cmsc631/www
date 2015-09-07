@@ -3,7 +3,7 @@
 
 @title[]{CMSC631: Program Analysis and Understanding}
 
-@emph{Fall, 2014}
+@emph{Fall, 2015}
 
 The course has two objectives. The first one is to introduce students
 to the complementary research areas of @emph{programming languages}
@@ -18,16 +18,20 @@ ask/articulate questions and how to recognize elements of solutions.
 
 @bold{Instructor:} @link["http://www.cs.umd.edu/~dvanhorn/"]{David Van Horn} (@tt{dvanhorn})
 
-@bold{Location:} @link["http://www.umd.edu/CampusMaps/bld_detail.cfm?bld_code=CSI"]{CSI} 3118, Tu & Th 3:30--4:45pm.
+@bold{Teaching assistant:} @link["https://cs.umd.edu/~tpensyl/"]{Thomas Pensyl} (@tt{tpensyl})
 
-@bold{Office hours:} Wed 1:30--3:30pm 3439 AVW, or by appointment.
+@bold{Location:} @link["http://www.umd.edu/CampusMaps/bld_detail.cfm?bld_code=CSI"]{CSI} 2107, Tu & Th 3:30--4:45pm.
+
+@bold{Office hours (Van Horn):} Wed 1:30--3:30pm 3439 AVW, or by appointment.
+
+@bold{Office hours (Pensyl):} Mon 3:00--5:00pm 3164 AVW, or by appointment.
 
 @bold{Communication:} There is a course @secref{Blog} where class
 announcements are made.  You are expected to check the blog every
 day. There is also a
-@link["http://piazza.com/umd/fall2014/cmsc631/home"]{Piazza forum}
+@link["http://piazza.com/umd/fall2015/cmsc631/home"]{Piazza forum}
 where you can communicate with other members of the class
-(@link["http://piazza.com/umd/fall2014/cmsc631"]{sign-up}).  The best
+(@link["http://piazza.com/umd/fall2015/cmsc631"]{sign-up}).  The best
 way to communicate with the instructor is via email or office hours.
 
 @bold{Prerequisites:} The course assumes that you know how to design

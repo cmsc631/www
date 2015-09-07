@@ -3,7 +3,7 @@
 
 @title{PS1}
 
-@bold{Due:} Midnight, Sept 4
+@bold{Due:} Midnight, Sept 3
 
 @bold{Purpose:} The goal of this problem set is to accomplish basic
 tasks that are critical for moving forward in the course and
@@ -12,7 +12,7 @@ successful PhD student: effective communication in written English.
 
 @section{Problem 0}
 
-Sign up for the course forum on @link["http://piazza.com/umd/fall2014/cmsc631"]{Piazza}.
+Sign up for the course forum on @link["http://piazza.com/umd/fall2015/cmsc631"]{Piazza}.
 
 @section{Problem 1}
 
@@ -98,4 +98,4 @@ turn anything in for this part of the assignment.)
 
 Send an email to my @tt{cs.umd.edu} address that includes your Github
 user name and attach your memo as a PDF file.  Email must be received
-by midnight on 9/4.
+by midnight on 9/3.
