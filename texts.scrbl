@@ -13,7 +13,12 @@ introductory text books.
 
 @bold{Required Text}
 
-@itemlist[@item{Felleisen, Findler, Flatt.  @emph{@link["http://redex.racket-lang.org/"]{Semantics Engineering with PLT Redex}}.  MIT Press 2009.}]
+@itemlist[
+
+@item{Felleisen, Findler, Flatt.  @emph{@link["http://redex.racket-lang.org/"]{Semantics Engineering with PLT Redex}}.  MIT Press 2009.}
+
+@item{See the list of research papers in the course @secref{Syllabus}.}
+]
 
 @bold{Supplemental Texts}
 
