@@ -4,6 +4,37 @@
 
 @title{Blog}
 
+@bold{Tue Sep 15 20:28:40 EDT 2015}
+
+Here is the code from today:
+
+@verbatim|{
+#lang racket
+(require redex)
+
+(define-language A
+  (e ::=
+     i
+     (Succ e)
+     (Pred e)
+     (Plus e e)
+     (Mult e e)
+     (Amb e e))
+  (i j ::= number))
+
+(define r
+  (reduction-relation
+   A
+   #:domain e
+   (--> (Succ i) ,(+ (term i) 1))
+   (--> (Pred i) ,(- (term i) 1))
+   (--> (Plus i_1 i_2) ,(+ (term i_1) (term i_2)))
+   (--> (Mult i_1 i_2) ,(* (term i_1) (term i_2)))
+   (--> (Amb i_1 i_2) i_1)
+   (--> (Amb i_1 i_2) i_2)))
+
+(define ->r (compatible-closure r A e))
+}|
 
 @bold{Wed Sep  9 14:02:41 EDT 2015}
 
