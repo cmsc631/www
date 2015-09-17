@@ -4,6 +4,27 @@
 
 @title{Blog}
 
+@bold{Thu Sep 17 14:42:58 EDT 2015}
+
+Teams:
+
+@verbatim|{
+pair23: KonstantinosX (kostasx@cs), jameslitton (litton@cs) 
+pair24: Umar-Farooqui (umar.a.farooqui@g), davdar (darais@cs)
+pair25: Uyas (li3shuo1@g), vcepeda (vcepeda@cs)
+pair26: meethu24 (meethu24@g), aconz2 (andrewconsroe@g)
+pair27: Isweet (isweet@t), wir963 (wir963@g)
+pair28: osuciu (osuciu@cs), mckaz (milod@u)
+pair29: rstevens70 (stevens.rock@g), iobender (matthewbender77@g)
+pair30: angel6392 (aplane@u), bbengfort (benjamin@b)
+
+key: cs = cs.umd.edu, g = gmail.com, 
+     t = terpmail.umd.edu, u = umd.edu,
+     b = bengfort.com
+}|
+
+Missing: Ma, Xinyuan; Segev, Yoav; Sekniqi, Kevin; Shivapuram Lakshmanaswamy.
+
 @bold{Tue Sep 15 20:28:40 EDT 2015}
 
 Here is the code from today:

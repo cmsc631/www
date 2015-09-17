@@ -54,10 +54,11 @@
 	      @elem{@link["papers/redex-preface.pdf"]{Preface}, @link["papers/redex-I.1.pdf"]{I.1}, @link["papers/redex-I.2.pdf"]{I.2}})
 	(list "Welcome; Syntax & semantics"
 	      "II.11")
-	(list "Modelling semantics in OCaml & Redex" "I.3")
-	(list "Reduction with evaluation contexts" "I.4, II.12")
-	(list "Compositional compilation" "I.5")
+	(list "Modelling semantics in OCaml" "I.3")
+	(list "Modelling semantics in Redex" "I.4, II.12")
+	(list "Reduction with evaluation contexts" "I.5")
 	(list "Meaningful Errors" "I.10")
+	; Compositional compilation
 	(list "Type checking; type-based abstract interpretation" @(paper "Syntactic Approach to Type Soundness"
 					    "Wright & Felleisen"
 					    "wright-felleisen-syn-type-soundness.pdf"))
