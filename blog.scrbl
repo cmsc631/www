@@ -4,6 +4,356 @@
 
 @title{Blog}
 
+@bold{Fri Oct 16 19:22:19 EDT 2015}
+
+Here are the project team assignments for those I've heard from:
+
+@verbatim|{
+
+proj19: aconz2 (andrewconsroe@g), mckaz (milod@u)
+proj20: iobender (matthewbender77@g), xmaumd (xinyuanma521@g)
+proj21: KonstantinosX (kostasx@cs), bbengfort (benjamin@b)
+proj22: Umar-Farooqui (umar.a.farooqui@g), ashbondu (ashwin.lg341@g)
+proj23: meethu24 (meethu24@g), angel6392 (aplane@u)
+proj24: Isweet (isweet@t), wir963 (wir963@g)
+
+}|
+
+@bold{Thu Oct 15 17:10:19 EDT 2015}
+
+Here is the complete constraint-based type inference code we developed
+in class:
+
+@verbatim|{
+#lang racket
+(require redex)
+(require "types.rkt")
+
+(define-extended-language H F
+  (T ::= .... t)
+  (t ::= variable-not-otherwise-mentioned)
+
+  (Γ ::= ((x t) ...))
+  (C ::= ((T = T) ...)))
+
+(define-metafunction H
+  ∧ : C ... -> C
+  [(∧ ((T_0 = T_1) ...) ...)
+   ((T_0 = T_1) ... ...)])
+
+(define-metafunction/extension ext H
+  ext′ : Γ x T -> Γ)
+(define-metafunction/extension lookup H
+  lookup′ : Γ x -> T)
+
+(define-judgment-form H
+  #:mode (typeof I I I I O O)
+  #:contract (typeof Γ ⊢ e : T C)
+
+  [(where t (lookup′ Γ x))
+   -------------
+   (typeof Γ ⊢ x : t ())]
+
+  [-------------------
+   (typeof Γ ⊢ i : Int ())]
+
+  [-------------------
+   (typeof Γ ⊢ b : Bool ())]
+
+  [(typeof Γ ⊢ e : T C)
+   -----------
+   (typeof Γ ⊢ (Succ e) : Int (∧ C ((T = Int))))]
+
+  [(typeof Γ ⊢ e_0 : T_0 C_0)
+   (typeof Γ ⊢ e_1 : T_1 C_1)
+   (typeof Γ ⊢ e_2 : T_2 C_2)
+   --------------------------
+   (typeof Γ ⊢ (If e_0 e_1 e_2) : T_1
+           (∧ C_0 C_1 C_2 ((T_0 = Bool) (T_1 = T_2))))]
+  
+  [(typeof Γ ⊢ e_1 : T_1 C_1)
+   (typeof Γ ⊢ e_2 : T_2 C_2)
+   -----------
+   (typeof Γ ⊢ (Plus e_1 e_2) : Int
+           (∧ C_1 C_2 ((T_1 = Int) (T_2 = Int))))]
+
+  [(where T_1 ,(variable-not-in (term Γ) 'x))
+   (typeof (ext′ Γ x T_1) ⊢ e : T_2 C)
+   --------------------------------
+   (typeof Γ ⊢ (Fun x e) : (T_1 → T_2) C)]
+  
+  [(typeof Γ ⊢ e_1 : T_1 C_1)
+   (typeof Γ ⊢ e_2 : T_2 C_2)
+   (where T_3 ,(variable-not-in (term (Γ T_1 T_2)) 'ta))
+   -----------------------
+   (typeof Γ ⊢ (App e_1 e_2) : T_3
+           (∧ C_1 C_2 ((T_1 = (T_2 → T_3)))))])
+
+(judgment-holds (typeof () ⊢ (If True 1 False) : T C) (T C))
+(judgment-holds (typeof () ⊢ (Fun x x) : T C) (T C))
+(judgment-holds
+ (typeof () ⊢ (Fun x (Plus x x)) : T C) (T C))
+
+(judgment-holds
+ (typeof () ⊢ (Fun x (App x x)) : T C) (T C))
+
+(define-metafunction H
+  unify : C -> C or #f
+  [(unify ()) ()]
+  [(unify ((T = T) any ...))
+   (unify (any ...))]
+  [(unify (((T_1 → T_2) = (T_3 → T_4)) any ...))
+   (unify ((T_1 = T_3) (T_2 = T_4) any ...))]
+  [(unify ((Bool = Int) _ ...)) #f]
+  [(unify ((Int = Bool) _ ...)) #f]
+  [(unify ((Bool = (_ → _)) _ ...)) #f]
+  [(unify ((Int = (_ → _)) _ ...)) #f]
+  [(unify (((_ → _) = Bool) _ ...)) #f]
+  [(unify (((_ → _) = Int) _ ...)) #f]
+  [(unify ((T = t) any ...))
+   (unify ((t = T) any ...))]
+  [(unify ((t = T) any ...))
+   (∧ ((t = T)) C)
+   (where C (unify (subst T t (any ...))))
+   ;; occurs check
+   (where #t (not-in t (vars T)))]
+  [(unify C) #f])
+
+(define-metafunction H
+  vars : T -> (t ...)
+  [(vars t) (t)]
+  [(vars Bool) ()]
+  [(vars Int) ()]
+  [(vars (T_1 → T_2))
+   (t_1 ... t_2 ...)
+   (where (t_1 ...) (vars T_1))
+   (where (t_2 ...) (vars T_2))])
+
+(define-metafunction H
+  not-in : t (t ...) -> #t or #f
+  [(not-in t ()) #t]
+  [(not-in t (t t_0 ...)) #f]
+  [(not-in t (t_0 t_1 ...))
+   (not-in t (t_1 ...))])
+
+(define-metafunction H
+  subst : T t C -> C
+  [(subst T t ((T_0 = T_1) ...))
+   (((subst-t T t T_0) = (subst-t T t T_1)) ...)])
+
+(define-metafunction H
+  subst-t : T t T -> T
+  [(subst-t T t Int) Int]
+  [(subst-t T t Bool) Bool]
+  [(subst-t T t (T_1 → T_2))
+   ((subst-t T t T_1) → (subst-t T t T_2))]
+  [(subst-t T t t) T]
+  [(subst-t T t t_0) t_0])
+
+(define-metafunction H
+  infer : Γ ⊢ e -> T or #f
+  [(infer Γ ⊢ e)
+   T
+   (judgment-holds (typeof Γ ⊢ e : T_0 C_0))
+   (where C (unify C_0))
+   (where T (apply-soln C T_0))]
+  [(infer Γ ⊢ e) #f])
+
+(define-metafunction H
+  apply-soln : C T -> T
+  [(apply-soln () T) T]
+  [(apply-soln ((t = T) any ...) T_0)
+   (subst-t T t (apply-soln (any ...) T_0))])
+}|
+
+
+@bold{Thu Oct 15 15:29:55 EDT 2015}
+
+Here's the code from last time (two parts).
+
+@verbatim|{
+#lang racket
+(require redex)
+(provide F lookup ext)
+
+(define-language F
+  (e ::= i b x
+     (Succ e)
+     (Plus e e)
+     (If e e e)
+     (Fun x e)
+     (App e e))
+
+  (x ::= variable-not-otherwise-mentioned)
+  (i ::= integer)
+  (b ::= True False)
+
+  ;; Types
+  (T ::= Int Bool (T → T))
+  ;; Type environment
+  (Γ ::= ((x T) ...)))
+
+(define-metafunction F
+  lookup : Γ x -> T
+  [(lookup ((x T) _ ...) x) T]
+  [(lookup (_ (x_0 T_0) ...) x)
+   (lookup ((x_0 T_0) ...) x)])
+
+(define-metafunction F
+  ext : Γ x T -> Γ
+  [(ext ((x_0 T_0) ...) x T) ((x T) (x_0 T_0) ...)])
+
+(define-judgment-form F
+  #:mode (typeof I I I I O)
+  #:contract (typeof Γ ⊢ e : T)
+
+  [--------------------
+   (typeof Γ ⊢ i : Int)]
+
+  [--------------------
+   (typeof Γ ⊢ b : Bool)]
+  
+  [(where T (lookup Γ x))
+    ---------------------
+   (typeof Γ ⊢ x : T)]
+
+  [(typeof Γ ⊢ e : Int)
+   --------------------
+   (typeof Γ ⊢ (Succ e) : Int)]
+
+  [(typeof Γ ⊢ e_0 : Int)
+   (typeof Γ ⊢ e_1 : Int)
+   --------------------
+   (typeof Γ ⊢ (Plus e_0 e_1) : Int)]
+
+  [(typeof Γ ⊢ e_0 : Bool)
+   (typeof Γ ⊢ e_1 : T)
+   (typeof Γ ⊢ e_2 : T)
+   -----------------------
+   (typeof Γ ⊢ (If e_0 e_1 e_2) : T)]
+
+  ;; This doesn't work
+  #;
+  [(typeof (ext Γ x T_1) ⊢ e : T_2)
+   --------------------------------
+   (typeof Γ ⊢ (Fun x e) : (T_1 → T_2))])
+  
+
+(judgment-holds (typeof ((x Int)) ⊢ x : Int))
+(judgment-holds (typeof ((x Int) (x Bool)) ⊢ x : Int))
+(judgment-holds (typeof ((x Int) (x Bool)) ⊢ x : Bool))
+}|
+
+Here is the rest:
+
+@verbatim|{
+#lang racket
+(require redex)
+(require "types.rkt")
+
+(define-extended-language G F
+  (e ::= .... (Fun x T e)))
+
+(define-judgment-form F
+  #:mode (typeof I I I I O)
+  #:contract (typeof Γ ⊢ e : T)
+
+  ;; This works because of explicit type annotations.
+  [(typeof (ext Γ x T_1) ⊢ e : T_2)
+   --------------------------------
+   (typeof Γ ⊢ (Fun x T_1 e) : (T_1 → T_2))]
+
+  [(typeof Γ ⊢ e_1 : (T_1 → T_2))
+   (typeof Γ ⊢ e_2 : T_1)
+   -----------------------
+   (typeof Γ ⊢ (App e_1 e_2) : T_2)])
+
+}|
+
+
+@bold{Thu Oct  8 15:22:30 EDT 2015}
+
+I've extended the deadline for @secref{PS3} by one week and for
+@secref{RP1} by 2 days.
+
+I've added several potential project ideas.
+
+@bold{Thu Oct  8 15:00:21 EDT 2015}
+
+Here's the code from Tuesday:
+
+@verbatim|{
+type exp = 
+  | Int of int
+  | Bool of bool
+  | Var of var
+  | Plus of exp * exp
+  | Mult of exp * exp
+  | If of exp * exp * exp
+  | Let of var * exp * exp
+  (* added *)
+  | App of exp * exp
+  | Fun of var * exp
+ and var = string
+
+type value =
+  | VInt of int
+  | VBool of bool
+  (* added *)
+  | VFun of f
+ and f =
+   | F1 of var * env * exp (* lexical scope *)
+(* | F1 of var * exp *)    (* dynamic scope *)
+
+type env = (var * value) list
+
+
+let rec eval (r : env) (e : exp) : value =
+  match e with
+  | Int i -> VInt i
+  | Bool b -> VBool b
+  | Var x -> List.assoc x r
+  | Plus (e1, e2) -> 
+     let VInt v1 = eval r e1 in
+     let VInt v2 = eval r e2 in
+     VInt (v1 + v2)
+  | Mult (e1, e2) ->
+     let VInt v1 = eval r e1 in
+     let VInt v2 = eval r e2 in
+     VInt (v1 * v2)
+  | If (e1, e2, e3) ->
+     let VBool b = eval r e1 in
+     if b then eval r e2 else eval r e3
+  | App (e1, e2) ->
+     let VFun f = eval r e1 in
+     let v = eval r e2 in
+     (match f with
+      (* lexical scope *)
+      | F1 (x, r, e) -> 
+	 eval ((x,v)::r) e)
+      (* dynamic scope *)
+(*    | F1 (x, e) ->
+	 eval ((x,v)::r) e)
+*)
+
+  | Fun (x, e) ->
+      (* functional representation *)
+      (* (fun v -> eval ((x,v)::r) e) *)
+
+      (* closure representation, lexical *)
+      VFun (F1 (x, r, e))
+      (* dynamic *)
+      (* VFun (F1 (x, e)) *)
+
+  | Let (x, e1, e2) ->
+     let v = eval r e1 in
+     eval ((x,v)::r) e2
+}|
+
+@bold{Thu Sep 24 15:25:40 EDT 2015}
+
+I am removing problem 0 from @secref{PS2}; it will be added to @secref{PS3}.
+
 @bold{Tue Sep 22 23:00:54 EDT 2015}
 
 New pair:
