@@ -4,6 +4,10 @@
 
 @title{Blog}
 
+@bold{Tue Oct 20 14:48:07 EDT 2015}
+
+I need to cancel class today; see you Thursday.
+
 @bold{Fri Oct 16 19:22:19 EDT 2015}
 
 Here are the project team assignments for those I've heard from:
@@ -16,7 +20,7 @@ proj21: KonstantinosX (kostasx@cs), bbengfort (benjamin@b)
 proj22: Umar-Farooqui (umar.a.farooqui@g), ashbondu (ashwin.lg341@g)
 proj23: meethu24 (meethu24@g), angel6392 (aplane@u)
 proj24: Isweet (isweet@t), wir963 (wir963@g)
-
+proj25: rstevens70 (stevens.rock@g), osuciu (osuciu@cs)
 }|
 
 @bold{Thu Oct 15 17:10:19 EDT 2015}
