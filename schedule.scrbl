@@ -21,9 +21,9 @@
         "9/10"
         "9/15"
  	"9/17"
-	(list "9/22" @secref{PS2})
+	"9/22" ; orig PS2 deadline
 	"9/24"
-	"9/29"
+	(list "9/29"  @secref{PS2})
         "10/1"
 	(list "10/6" @secref{PS3})
 	"10/8"
@@ -62,14 +62,14 @@
 	(list "Type checking; type-based abstract interpretation" @(paper "Syntactic Approach to Type Soundness"
 					    "Wright & Felleisen"
 					    "wright-felleisen-syn-type-soundness.pdf"))
-	(list "Type inference; unification"
+	(list "Interval abstraction"
 	      @elem{
 		    @(paper "A Simple Algorithm and Proof for Type Inference"
 			    "Wand"
 			    "wand-inference.pdf")})
 
 
-	(list "Interval abstraction; functions"
+	(list "Functions; type inference; unification"
 	      @(paper "Symbolic Execution and Program Testing" "King" "king-symbolic-execution.pdf"))
 	(list @elem{Project pitches: @link["http://www.cs.umd.edu/~hammer/"]{Hammer}, @link["http://www.cs.umd.edu/~piotrm/"]{Mardziel}, @link["http://www.cs.umd.edu/~micinski/"]{Micinski}}
 	     @(paper "Definitional Interpreters for Higher-Order Programming Languages" "Reynolds" "reynolds-definitional-interpreters.pdf"))

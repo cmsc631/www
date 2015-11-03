@@ -3,7 +3,7 @@
 
 @title{PS3}
 
-@bold{Due:} Midnight, Oct 7
+@bold{Due:} Midnight, Oct 14
 
 @bold{Purpose:} The goal of this problem set is to practice designing
 and implementing basic program analysis techniques for simple models

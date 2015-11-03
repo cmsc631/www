@@ -4,6 +4,22 @@
 
 @title{Blog}
 
+@bold{Tue Nov  3 15:08:57 EST 2015}
+
+I've provided some initial feedback (as github issues) on all of the
+research proposals I've received so far.  Please see me if you want
+talk more about the projects, have questions on what I said, or didn't
+get feedback.
+
+Please have your revised and expanded proposal @secref{RP2} turned in
+by the end of the week.
+
+It's important that you make progress on your research project now;
+it's not something you can do overnight or even in a week.  The only
+way to be successful is to use your time wisely between now and the
+end of the semester.
+
+
 @bold{Tue Oct 20 14:48:07 EDT 2015}
 
 I need to cancel class today; see you Thursday.

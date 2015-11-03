@@ -16,6 +16,9 @@ the related work.
 Potential papers to study in such a project (pick one):
 @itemlist[
 
+@item{Duplication and Partial Evaluation - For a Better Understanding
+of Reflective Languages, Asai, Matsuoka, Yonezawa, HOSC'96}
+
 @item{Logical types for untyped languages,
 Sam Tobin-Hochstadt and Matthias Felleisen, ICFP'10}
 
@@ -40,6 +43,79 @@ Patrick Cousot and Radhia Cousot, POPL'14}
 @item{... or something of your own choosing (subject to approval).}
 
 ]
+
+@section[#:tag "runtime-verification"]{Build a run-time static type checker}
+
+In collaboration with David Van Horn.
+
+Build a language that is untyped but gives the programmer the ability
+to declare a type system, using a domain specific language, and assert
+that the rest of the computation should be statically typable.  There
+are possible extension for optimizing the checked run-time and dealing
+with later updates to the type system.
+
+@section[#:tag "gradruby"]{Implement blame and gradual typing in Ruby}
+
+In collaboration with Jeff Foster.
+
+For the last several years, we’ve been exploring adding types to Ruby
+[1, 2], a general-purpose dynamic language. Very recently, we think
+we’ve solved some key problems with designing such a system. We have
+an implementation of “contracts,” including types, for Ruby [3] and
+we’re working on a system that does static type checking for Ruby, but
+at run time, at the entry to each method. However, we still don’t have
+a solid implementation of gradual typing [4] and a corresponding story
+for blame [5]. The goal of this project would be to extend our current
+Ruby type/contract to support blame, following [4] and [5]. Since
+designing a full version of the system make take some time, the
+immediate goal for the end of the semester would be to build a
+proof-of-concept prototype. There are also several other potential
+Ruby type/contract projects to work on, if multiple people are
+interested.
+
+[1] @url{http://www.cs.umd.edu/~jfoster/papers/oops13.pdf}
+
+[2] @url{http://corundum.cs.umd.edu:3000/tagged/13}
+
+[3] @url{https://github.com/plum-umd/rdl}
+
+[4] @url{http://wphomes.soic.indiana.edu/jsiek/what-is-gradual-typing/}
+
+[5] @url{http://dl.acm.org/citation.cfm?id=581484}
+
+
+@section[#:tag "expositor"]{Build Expositor for rr}
+
+In collaboration with Jeff Foster.
+
+A couple of years ago, we developed Expositor, a new scriptable,
+time-travel debugging system. Expositor lets developers write Python
+scripts that seem to treat the entire program execution an timestamped
+list that can be manipulated, e.g., with map, filter, fold, and so
+on. The key novelty of Expositor is that it performs such
+manipulations lazily, on demand, meaning only as needed to answer the
+developer’s current debugging query. For example, the developer might
+conceptually create a list of all memory allocations during execution,
+but in debugging might only demand the last memory allocation before a
+crash—and Expositor will take care to only materialize as much of the
+execution as needed to show that. Expositor itself is a Python
+library, with two key pieces: a clever interface to an underlying
+time-travel debugger, UndoDB, that only invokes the debugger as needed
+to answer queries; and EditHAMTs (Edit Hash Array Mapped Trie), a new
+data structure to make it easier for Expositor scripts to be
+sufficiently lazy.
+
+The goal of this project would be to modify Expositor to use a
+different back-end, rr [2], a record-and-replay tool currently under
+development at Mozilla. More specifically, since the Expositor code is
+likely quite complicated, the goal would be to build a
+proof-of-concept implementation of Expositor, showing that some of its
+basic functionality can be achieved using rr. If this works, there are
+several cool research problems to explore using the resulting tool.
+
+[1] @url{http://www.cs.umd.edu/~jfoster/papers/expositor-journal.pdf}
+
+[2] @url{https://github.com/mozilla/rr}
 
 @section[#:tag "test"]{Test equivalence}
 

@@ -3,7 +3,7 @@
 
 @title{PS2}
 
-@bold{Due:} Midnight, Sept 23
+@bold{Due:} Midnight, Sept 30 (revised from Sept 23)
 
 @bold{Purpose:} The goal of this problem set is to improve your
 technical writing and to acquire basic competence in designing and

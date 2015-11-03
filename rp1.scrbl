@@ -3,7 +3,7 @@
 
 @title{RP1}
 
-@bold{Due:} Midnight, Oct 14
+@bold{Due:} Midnight, Oct 16
 
 @bold{Purpose:} The goal of this research task is to establish a
 collaborative team that will carry out the project over the remainder
