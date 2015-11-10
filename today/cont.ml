@@ -85,3 +85,40 @@ let rec plug_k (cont : k) (x : cls) : cls =
   | KAppR (cls, cont) ->
      plug_k cont (App (cls, x))
 
+let ext (r : env) (x : string) (v : cls) : env =
+  (x,v)::r
+	
+
+let is_val (c : cls) : bool =
+  match c with
+  | Close (Fun (_, _), _) -> true
+  | _ -> false
+
+let step (c : cls) (k : k) : (cls * k) option =
+  match c with
+  (* 1: Reduction axiom transitions *)
+  | Close (Var x, r) -> Some (List.assoc x r, k)
+  | Close (App (e1, e2), r) ->
+     Some (App (Close (e1, r), Close (e2, r)), k)
+  | App (Close (Fun (x, e), r), v)
+       when is_val v ->	 
+     Some (Close (e, ext r x v), k)
+  (* 2: Eval transitions *)
+  | App (c1, c2) when is_val c1 ->
+     Some (c2, KAppR (c1, k))
+  | App (c1, c2) ->
+     Some (c1, KAppL (k, c2))
+  (* 3: Continue transitions *)
+  | v -> 
+     (match k with
+      | KHole -> None
+      | KAppL (k', c) -> Some (App (v, c), k')
+      | KAppR (c, k') -> Some (App (c, v), k'))
+
+
+
+
+
+
+
+
