@@ -5,7 +5,7 @@
 
 @(define ps "ps4")
 
-@bold{Due:} Midnight, November 18
+@bold{Due:} Midnight, November 25
 
 @bold{Purpose:} The goal of this problem set is to demonstrate you
 can design and implement abstract machines and their finite

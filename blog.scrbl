@@ -4,6 +4,11 @@
 
 @title{Blog}
 
+@bold{Tue Nov 17 13:43:48 EST 2015}
+
+I've received several requests to extend the deadline for
+@secref{PS4}.  I've pushed it back one week.
+
 @bold{Fri Nov 13 12:36:52 EST 2015}
 
 Please read the first three sections of the following document to get
