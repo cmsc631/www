@@ -4,6 +4,15 @@
 
 @title{Blog}
 
+@bold{Tue Dec  8 10:54:19 EST 2015}
+
+Please be sure to fill out the course evaluation,
+@url{https://www.CourseEvalUM.umd.edu}.
+
+@bold{Tue Dec  1 15:16:19 EST 2015}
+
+I've posted the schedule for final presentations on the syllabus.
+
 @bold{Tue Nov 17 13:43:48 EST 2015}
 
 I've received several requests to extend the deadline for
