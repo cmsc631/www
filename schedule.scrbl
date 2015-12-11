@@ -45,7 +45,7 @@
 	(list "12/3" @secref{RP3})
 	"12/8"
 	"12/10"
-	(list "12/??" @elem{@secref{RP4}, @secref{PS5}})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
+	(list "12/19" @elem{@secref{RP4}, @secref{PS5}})))  @;http://www.registrar.umd.edu/current/registration/exam%20tables%20fall.html
 
 @(define topics+readings
   (list (list @color["red"]{No class}
@@ -141,8 +141,8 @@
 	(list @color["red"]{No class: Thanksgiving} "")
 	(list "Slack" "")
 	(list "Slack" "")
-	(list @color["blue"]{Presentations: Project 15, 14} "")
-	(list @color["blue"]{Presentations: Project 18, 13, 16} "")
+	(list @color["blue"]{Presentations: Project 19, 21, 23, 25} "")
+	(list @color["blue"]{Presentations: Project 22, 24, Li, Darais} "")
 	(list @color["green"]{Final} "")))
 	
 

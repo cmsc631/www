@@ -4,6 +4,261 @@
 
 @title{Blog}
 
+@bold{Fri Dec 11 11:18:08 EST 2015}
+
+We will not NOT meet during the final exam period.  Focus on the final
+problem set and research report.
+
+@bold{Tue Dec  8 14:40:28 EST 2015}
+
+Here are the abstracts for today's presentations.
+
+@itemlist[
+
+@item{Run-time static type checking, Consroe and Kazerounia
+
+Type systems have historically fallen into two disjoint
+classifications: static and dynamic. Static typing requires total
+knowledge of a program in order to verify the program will not get
+stuck when running. The knowledge gained from a static type system is
+useful for language implementations as well as for the author of a
+program. A dynamically typed program on the other hand starts
+executing with no prior checks. This approach affords a programmer
+many more sound programs which would otherwise produce a static type
+error.
+
+We seek to unify the power of each. Our approach will allow a program
+to begin running as a dynamically typed program with the ability to
+define new types at run-time. A program can then perform a static type
+check of a subsection of the program. Furthermore, we provide the user
+with the ability recover in the event that the “static section” of
+their code should fail to type check. This approach will provide the
+programmer with the flexibility of a dynamic type system and the
+guarantees of a static type system.}
+
+@item{Faceted Values and Dynamic Information Flow Control,
+Xirogiannopoulos and Bengfort
+
+It has become increasingly popular to create rich web applications
+through the plug-and-play integration of web services by embedding
+publisher specific JavaScript code into an application's native code
+base. Typically, a plug-and-play workflow relies on the inclusion of
+snippets of third party code in the client application, customized
+with confidential API keys or site-specifc information. Modern
+browsers provide techniques like sandboxing and cross-domain exclusion
+attempt to protect confidential information from cross site scripting
+(XSS) and injection attacks. However, once third party code is
+embedded, it is treated as a native part of the code base and is
+executed with the same privileges. As a result, this "outsider code"
+is a vector for malicious behavior and the leakage of confidential
+information through a variety of channels within the code itself.
+
+The Information Flow Control of programs is a systematic approach to
+understanding how information (data) stored in a program's variables,
+gets propagated within the code itself. Information Flow Control
+methods detect the way data is passed by specifying a security level
+for each variable and provide monitoring to prevent the propagation
+(flow) of sensitive information to public observers. In this talk, we
+will introduce the basic concepts and primary contributions of
+Information Flow Control and enumerate many of the existing techniques
+proposed by the academic community. We will then turn to focus on a
+specific technique: dynamic information flow control using faceted
+values, developed by Austin and Flanagan.
+}
+
+@item{Debugging the Debugger: Assessing the usability of debugging
+tools for novice programmers, Malu and Plane
+
+Jakob Nielsen’s heuristics have been widely used and have become a
+benchmark for evaluating any user interface. One of his classic
+usability heuristics is “Visibility of System Status,” which means
+giving relevant feedback as and when needed to keep the user informed
+about the system. For novice programmers, coding and debugging can get
+intimidating as they cannot see what’s happening behind the scenes. To
+address this problem there has been some recent work to make
+programming languages visual. However, for debugging the techniques
+and tools still remain old. From a 2002 survey, it was found that
+software bugs cost companies ~60 billion USD annually. Hence the need
+for designing better debugging tools to easily understand and identify
+errors and remove them thus leading to better productivity of
+programmers and also reducing the maintenance cost is needed. But the
+process of debugging can be particularly challenging for novice
+programmers who are just starting out and may need training and
+learning to understand what those errors mean and how can they be
+removed. In our work, we explore the Eclipse’s in-built debugger to
+see how novice programmers approach problem solving.
+
+We combine Jakob Nielsen’s 10 heuristics and Sadowski et. al.’s heuristics to evaluate programming languages and create our new set of 10 heuristics for our context. We then conduct a user study with 10 novice programmers by giving them 3 tasks to evaluate Eclipse’s in-built debugger. Participants use this new set of heuristics to evaluate the tool and talk about their experience in a semi-structured interview. Because of the exploratory nature of this project, we use a grounded theory approach to understand problems, patterns and trends in debugging approach for novice programmers. We hypothesize that existing tools like the Eclipse’s in-built debugger is not intuitive for first time programmers and we expect results from our work will help in providing guidelines to build better tools that would not only help the productivity of programmers but also reduce the cost associated with it.
+}
+
+@item{Hacking Big Data and Machine Learning: An Analysis of Integrity
+and Influence, Stevens and Suciu
+
+Governments and businesses thrive on the output of data analytics for
+improving their competitive edge in areas such as consumer
+satisfaction, threat intelligence, decision making, and product
+efficiency. These entities inherently trust the output of their data
+processing algorithms with the belief that the results represent an
+extrapolated trend from a massive selection of unnormalized
+input. Public information is often deemed safe for ingestion into data
+stores because of this core belief. This insecure practice introduces
+a new vector of attack for miscreants in which they now control an
+arbitrary subset of the input for machine learning algorithms. This
+research will introduce a survey of novel attacks in which an
+adversary can influence or control the outcome of machine learning and
+data analytics algorithms given an arbitrarily small input. In an
+effort to counter these attacks, we will propose approaches to defend
+against our novel attacks.
+
+}
+
+
+]
+
+Here are the abstracts for Thursday:
+
+@itemlist[
+
+@item{Survey and Model of "Static Analysis of String Manipulations in Critical Embedded C Programs", Farooqui and Lakshmanaswamy
+
+
+Programming in C with strings, and more generally with buffers is a
+source of major vulnerabilities, for the reasons that the compiler
+doesn’t inherently provide a protection against writing to the
+unallocated regions of memory and the dynamic errors can elude
+detection from developers and testers. The motivation of this research
+project is to survey and implement a static analysis algorithm of
+string manipulation in program source code. In this regard, the scope
+of the C language is confined only to the syntax related to performing
+the string manipulation and doesn’t cover allocation of memory
+dynamically. The analysis is based on the theory of abstract
+interpretation and relies on the abstraction of stores that retain the
+length of string buffers.
+
+We implemented the paper in two folds. In the first approach, we used
+C Intermediate Language (CIL) for the abstraction of the set of stores
+and performed value analysis (using a plugin of an open source tool
+called Frama-C) to obtain the abstract values stored. Based on these
+values, we determine whether the destination has enough space to hold
+the contents of the source, and accordingly emit the warning of the
+string buffer flow. In the second approach, we implemented the static
+analysis for the presence of the string overflows without relying on
+the CIL and value analysis. For the small subset of C language which
+deals with character arrays and string copy, we parse the source code
+to detect the expression initializing the character arrays and
+character pointers. The value analysis is performed by keeping a track
+of the variables and the size allocated and in the case where the
+destination string cannot hold the source string; we raise the string
+buffer overflow exception. We tested both the approaches with some
+example source code and achieved promising results.}
+
+@item{Symbolic Execution for Cryptocurrencies, Sweet and Robinson
+
+
+For our project, we wrote a symbolic executor for Ethereum Virtual
+Machine (EVM) bytecode. Ethereum is a cryptocurrency platform with a
+quasi-Turing complete programming language that leverages the
+blockchain-paradigm popularized by Bitcoin. In addition to a permanent
+record of all transactions, the blockchain also contains smart
+contracts, which are user-written computer protocols to enforce
+agreements. Smart contracts are intended to eliminate the need for a
+trusted third party by allowing code to act as a truly independent 3rd
+party.
+
+However, it is difficult to verify that smart contracts in Ethereum do
+what they claim to do because they are included on the blockchain in
+the form of EVM bytecode. Even honest contract writers may include
+exploitable errors in their smart contracts. Unlike other computer
+systems whose bugs indirectly cost money, ethereum smart contracts can
+directly transfer large amounts of money irrevocably making bugs even
+more costly. To provide a level of verification for smart contracts,
+we have developed a symbolic executor for EVM bytecode that can detect
+the existence of three common bugs in Ethereum smart contracts, the
+"blockhash bug", the "callstack bug" and the “out of gas bug”.
+
+}
+
+@item{Survey and Model: Logical Types for Untyped Languages, Li
+
+My project is to do a survey on the paper Logical types for untyped
+languages by Sam Tobin-Hochstadt and Matthias Felleisen in ICFP
+10. The paper is about the improvement of the type system in
+Racket. The problem of the old Racket type system is not being able to
+typecheck an expression effectively when there is a combination of
+logic predicates in the expression. For example, in (if (or (number?
+x) (string? x)) (f x) 0), there is an if and an or in the expression,
+so the information obtained from the test propositions should be
+passed on to the if expression in the typecheck. To propagate this
+information, the paper proposed a proposition environment. All the
+information from the tests can be formulated as another language based
+on the propositions, and the typecheck is done by the reduction on
+this proposition environment language, which is the most part of the
+paper. The authors described their method as a new framework of
+occurrence typing. In my talk I will introduce this method by
+presenting a number of examples.
+
+}
+
+@item{Mechanized Gradual Typing by Abstract Interpretation, Darais
+
+
+Gradual type systems have been suggested and recently popularized in
+an attempt to bridge the gap between dynamically and statically typed
+programming languages. The effort is motivated by a desire to overcome
+the _limitations_ of both paradigms: statically typed languages
+restrict programmer expression, and dynamically typed languages make
+no promises about program execution. On the other hand, gradual type
+systems are simultaneously motivated by combining the _benefits_ of
+both paradigms: uninhibited programmer expression combined with
+optional lightweight program verification.
+
+Although gradual type systems have seen great success, both for
+researchers and practitioners in industry, advancement of the field is
+crippled by the added complexity that comes with designing a new
+gradually typed programming language. The design of gradual languages
+has only managed to catch up with the state of the art in type systems
+developed circa 1980.
+
+To guide the design of new gradual type systems, a unifying framework
+has been recently proposed called Abstracting Gradual Types
+(AGT). Using AGT, both static and dynamic semantics of gradual type
+systems are derived systematically through abstract interpretation of
+a programming language with precise types.
+
+In this presentation I will discuss _formal verification_ of gradual
+type systems derived in AGT style. This poses a number of unique
+challenges, and the key to overcoming them lies in the recently
+developed framework of Constructive Galois connections: a variant of
+classical Galois connections which carry computational content and are
+amenable to formal verification.}
+
+@item{Dynamic Type Systems, Litton
+
+In any given programming language, the type system confers upon the
+user a means to impose constraints on the source code in the hope of
+providing certain guarantees on the output. A programming language
+that disallows dereferencing an integer through a typecast, for
+example, ameliorates errors and makes the code easier to reason about
+and optimize. Programmers typically choose a language where the
+constraints and guarantees provide a good trade-off for their
+domain. Unfortunately, the domain is not fixed for the lifetime of the
+program, and developers must live with the lowest common denominator
+of available type systems.
+
+C, for instance, allows developers to dereference an integer as a
+pointer to some other type. This is a necessity in certain layers of
+systems architecture, but is otherwise a hazard. Newer languages, such
+as Rust, seek to accomodate this disparity by allowing developers to
+drop into "unsafe" sections of code where the type system is
+relaxed. We have developed a simple system to explore generalizing
+this idea to user defined and runtime modifiable type systems embedded
+within a larger program. In our talk we will present our results, both
+in terms of the limits of the generalization, its applications, and
+our implementation.}
+
+]
+
+
 @bold{Tue Dec  8 10:54:19 EST 2015}
 
 Please be sure to fill out the course evaluation,
